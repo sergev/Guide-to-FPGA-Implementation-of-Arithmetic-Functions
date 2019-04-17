@@ -1,0 +1,13 @@
+-batch 
+-create fsl_mixcolumns 
+-ver 1.00.a 
+-dir C:\User\Doctor\papers\libro_Deschamps\edk13.1\coprocessor_ip\ 
+-lang vhdl 
+-bus fsl ms 
+-xps 
+-driver 
+-totalin 8
+-totalout 8
+-argin 1
+-argout 1
+-desc "new FSL core"

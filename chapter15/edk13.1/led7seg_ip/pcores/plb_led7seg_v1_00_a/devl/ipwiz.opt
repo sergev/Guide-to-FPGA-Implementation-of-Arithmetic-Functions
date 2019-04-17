@@ -1,0 +1,8 @@
+-batch 
+-create plb_led7seg 
+-ver 1.00.a 
+-dir "C:\User\Doctor\papers\libro_Deschamps\edk13.1\led7seg_ip" 
+-lang vhdl 
+-bus plbv46 s 
+-xps 
+-driver 

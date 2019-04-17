@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="flash_emc (Bank Address: MEM0_BASEADDR)" key="com.xilinx.sdk.tools.internal.ui.ProgramFlashPresenter.FlashController"/>
+	<item value="0x00F80000" key="com.xilinx.sdk.tools.internal.ui.ProgramFlashPresenter.ProgOffset"/>
+	<item value="C:\User\Doctor\papers\libro_Deschamps\edk13.1\reconfig\bitstream\partial_determinant.bit" key="com.xilinx.sdk.tools.internal.ui.ProgramFlashPresenter.ImageFile"/>
+	<item value="ilmb_cntlr" key="com.xilinx.sdk.tools.internal.ui.ProgramFlashPresenter.ScratchController"/>
+	<item value="false" key="com.xilinx.sdk.tools.internal.ui.ProgramFlashPresenter.PlatformFlash"/>
+</section>

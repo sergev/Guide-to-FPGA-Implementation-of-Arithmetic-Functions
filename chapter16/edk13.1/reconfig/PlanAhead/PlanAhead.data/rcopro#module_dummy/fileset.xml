@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<DARoots Version="1" Minor="12">
+	<FileSet Name="rcopro#module_dummy" Type="Reconfig" RelSrcDir="$PSRCDIR/rcopro#module_dummy">
+		<File Path="$PPRDIR/../XST/fsl_rcopro_dummy.ngc">
+		</File>
+		<Config>
+			<Option Name="GateLvlMode" Val="EDIF"/>
+			<Option Name="TopFile" Val="$PPRDIR/../XST/fsl_rcopro_dummy.ngc"/>
+			<Option Name="Partition" Val="rcopro"/>
+			<Option Name="ReconfigModule" Val="module_dummy"/>
+		</Config>
+	</FileSet>
+</DARoots>
+

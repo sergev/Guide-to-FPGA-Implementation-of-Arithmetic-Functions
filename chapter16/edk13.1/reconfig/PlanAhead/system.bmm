@@ -1,0 +1,26 @@
+// File: C:\User\Doctor\papers\libro_Deschamps\edk13.1\reconfig\XPS\implementation\system.bmm
+
+ADDRESS_MAP microblaze_0 MICROBLAZE 100
+	ADDRESS_SPACE lmb_bram_combined COMBINED [0x00000000:0x0000ffff]
+		ADDRESS_RANGE RAMB32
+		BUS_BLOCK
+			lmb_bram/lmb_bram/ramb36_0 [31:30] INPUT = lmb_bram_combined_0.mem ;
+			lmb_bram/lmb_bram/ramb36_1 [29:28] INPUT = lmb_bram_combined_1.mem ;
+			lmb_bram/lmb_bram/ramb36_2 [27:26] INPUT = lmb_bram_combined_2.mem ;
+			lmb_bram/lmb_bram/ramb36_3 [25:24] INPUT = lmb_bram_combined_3.mem ;
+			lmb_bram/lmb_bram/ramb36_4 [23:22] INPUT = lmb_bram_combined_4.mem ;
+			lmb_bram/lmb_bram/ramb36_5 [21:20] INPUT = lmb_bram_combined_5.mem ;
+			lmb_bram/lmb_bram/ramb36_6 [19:18] INPUT = lmb_bram_combined_6.mem ;
+			lmb_bram/lmb_bram/ramb36_7 [17:16] INPUT = lmb_bram_combined_7.mem ;
+			lmb_bram/lmb_bram/ramb36_8 [15:14] INPUT = lmb_bram_combined_8.mem ;
+			lmb_bram/lmb_bram/ramb36_9 [13:12] INPUT = lmb_bram_combined_9.mem ;
+			lmb_bram/lmb_bram/ramb36_10 [11:10] INPUT = lmb_bram_combined_10.mem ;
+			lmb_bram/lmb_bram/ramb36_11 [9:8] INPUT = lmb_bram_combined_11.mem ;
+			lmb_bram/lmb_bram/ramb36_12 [7:6] INPUT = lmb_bram_combined_12.mem ;
+			lmb_bram/lmb_bram/ramb36_13 [5:4] INPUT = lmb_bram_combined_13.mem ;
+			lmb_bram/lmb_bram/ramb36_14 [3:2] INPUT = lmb_bram_combined_14.mem ;
+			lmb_bram/lmb_bram/ramb36_15 [1:0] INPUT = lmb_bram_combined_15.mem ;
+		END_BUS_BLOCK;
+		END_ADDRESS_RANGE;
+	END_ADDRESS_SPACE;
+END_ADDRESS_MAP;

@@ -1,0 +1,5 @@
+vhdl work "C:\User\Doctor\papers\libro_Deschamps\edk13.1\reconfig\XPS\pcores\fsl_rcopro_v1_00_a\hdl\vhdl\fsl_rcopro_dummy.vhd"
+vhdl work "C:\User\Doctor\papers\libro_Deschamps\edk13.1\reconfig\XPS\pcores\fsl_rcopro_v1_00_a\hdl\vhdl\fsl_rcopro_adder.vhd"
+vhdl work "C:\User\Doctor\papers\libro_Deschamps\edk13.1\reconfig\XPS\pcores\fsl_rcopro_v1_00_a\hdl\vhdl\fsl_rcopro_multiplier.vhd"
+vhdl work "C:\User\Doctor\papers\libro_Deschamps\edk13.1\reconfig\XPS\pcores\fsl_rcopro_v1_00_a\hdl\vhdl\fsl_rcopro_scalar_multiplier.vhd"
+vhdl work "C:\User\Doctor\papers\libro_Deschamps\edk13.1\reconfig\XST\fsl_rcopro.vhd"

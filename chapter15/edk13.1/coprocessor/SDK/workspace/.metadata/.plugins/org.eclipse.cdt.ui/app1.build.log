@@ -1,0 +1,6 @@
+
+**** Clean-only build of configuration Release for project app1 ****
+
+make clean 
+rm -rf  ./src/application.o ./src/led7seg.o  ./src/application.d ./src/led7seg.d  app1.elf.size  app1.elf.elfcheck  app1.elf
+' '

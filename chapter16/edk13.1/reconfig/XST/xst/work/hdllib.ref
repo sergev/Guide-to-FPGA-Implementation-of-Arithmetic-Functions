@@ -1,0 +1,12 @@
+AR fsl_rcopro beh C:/User/Doctor/papers/libro_Deschamps/edk13.1/reconfig/XST/fsl_rcopro.vhd sub00/vhpl09 1303418224
+EN fsl_rcopro NULL C:/User/Doctor/papers/libro_Deschamps/edk13.1/reconfig/XST/fsl_rcopro.vhd sub00/vhpl08 1303418223
+AR fsl_rcopro_dummy beh1 C:/User/Doctor/papers/libro_Deschamps/edk13.1/reconfig/XPS/pcores/fsl_rcopro_v1_00_a/hdl/vhdl/fsl_rcopro_dummy.vhd sub00/vhpl01 1303418214
+AR fsl_rcopro_adder beh1 C:/User/Doctor/papers/libro_Deschamps/edk13.1/reconfig/XPS/pcores/fsl_rcopro_v1_00_a/hdl/vhdl/fsl_rcopro_adder.vhd sub00/vhpl03 1303418216
+AR fsl_rcopro_determinant beh1 C:/User/Doctor/papers/libro_Deschamps/edk13.1/reconfig/XPS/pcores/fsl_rcopro_v1_00_a/hdl/vhdl/fsl_rcopro_determinant.vhd sub00/vhpl11 1303418222
+EN fsl_rcopro_adder NULL C:/User/Doctor/papers/libro_Deschamps/edk13.1/reconfig/XPS/pcores/fsl_rcopro_v1_00_a/hdl/vhdl/fsl_rcopro_adder.vhd sub00/vhpl02 1303418215
+AR fsl_rcopro_multiplier beh1 C:/User/Doctor/papers/libro_Deschamps/edk13.1/reconfig/XPS/pcores/fsl_rcopro_v1_00_a/hdl/vhdl/fsl_rcopro_multiplier.vhd sub00/vhpl05 1303418218
+EN fsl_rcopro_scalar_multiplier NULL C:/User/Doctor/papers/libro_Deschamps/edk13.1/reconfig/XPS/pcores/fsl_rcopro_v1_00_a/hdl/vhdl/fsl_rcopro_scalar_multiplier.vhd sub00/vhpl06 1303418219
+EN fsl_rcopro_multiplier NULL C:/User/Doctor/papers/libro_Deschamps/edk13.1/reconfig/XPS/pcores/fsl_rcopro_v1_00_a/hdl/vhdl/fsl_rcopro_multiplier.vhd sub00/vhpl04 1303418217
+EN fsl_rcopro_dummy NULL C:/User/Doctor/papers/libro_Deschamps/edk13.1/reconfig/XPS/pcores/fsl_rcopro_v1_00_a/hdl/vhdl/fsl_rcopro_dummy.vhd sub00/vhpl00 1303418213
+EN fsl_rcopro_determinant NULL C:/User/Doctor/papers/libro_Deschamps/edk13.1/reconfig/XPS/pcores/fsl_rcopro_v1_00_a/hdl/vhdl/fsl_rcopro_determinant.vhd sub00/vhpl10 1303418221
+AR fsl_rcopro_scalar_multiplier beh1 C:/User/Doctor/papers/libro_Deschamps/edk13.1/reconfig/XPS/pcores/fsl_rcopro_v1_00_a/hdl/vhdl/fsl_rcopro_scalar_multiplier.vhd sub00/vhpl07 1303418220

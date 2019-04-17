@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;profiling/gmon.out&apos;" deleteContents="false" description="Delete resource &apos;profiling/gmon.out&apos;" element1="/profiling/gmon.out" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1309874892451"/>
+</session>

@@ -1,0 +1,7 @@
+##############################################################################
+## Filename:          coprocessor_ip\pcores/fsl_mixcolumns_v1_00_a/data/fsl_mixcolumns_v2_1_0.pao
+## Description:       Peripheral Analysis Order
+## Date:               (by Create and Import Peripheral Wizard)
+##############################################################################
+
+lib fsl_mixcolumns_v1_00_a fsl_mixcolumns vhdl

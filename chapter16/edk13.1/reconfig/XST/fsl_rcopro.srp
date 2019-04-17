@@ -1,0 +1,449 @@
+Release 13.1 - xst O.40d (nt)
+Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
+--> 
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input Format                       : MIXED
+Input File Name                    : "fsl_rcopro.prj"
+
+---- Target Parameters
+Target Device                      : xc5vlx50ff676-1
+Output File Name                   : "fsl_rcopro_scalar_multiplier.ngc"
+
+---- Source Options
+Top Module Name                    : fsl_rcopro
+
+---- Target Options
+Add IO Buffers                     : NO
+
+---- General Options
+Optimization Goal                  : speed
+Netlist Hierarchy                  : as_optimized
+Optimization Effort                : 1
+Hierarchy Separator                : /
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "C:/User/Doctor/papers/libro_Deschamps/edk13.1/reconfig/XPS/pcores/fsl_rcopro_v1_00_a/hdl/vhdl/fsl_rcopro_dummy.vhd" in Library work.
+Architecture beh1 of Entity fsl_rcopro_dummy is up to date.
+Compiling vhdl file "C:/User/Doctor/papers/libro_Deschamps/edk13.1/reconfig/XPS/pcores/fsl_rcopro_v1_00_a/hdl/vhdl/fsl_rcopro_adder.vhd" in Library work.
+Architecture beh1 of Entity fsl_rcopro_adder is up to date.
+Compiling vhdl file "C:/User/Doctor/papers/libro_Deschamps/edk13.1/reconfig/XPS/pcores/fsl_rcopro_v1_00_a/hdl/vhdl/fsl_rcopro_multiplier.vhd" in Library work.
+WARNING:HDLParsers:3530 - Time stamp of file "C:/User/Doctor/papers/libro_Deschamps/edk13.1/reconfig/XPS/pcores/fsl_rcopro_v1_00_a/hdl/vhdl/fsl_rcopro_multiplier.vhd" is newer than current system time.
+Entity <fsl_rcopro_multiplier> compiled.
+Entity <fsl_rcopro_multiplier> (Architecture <beh1>) compiled.
+Compiling vhdl file "C:/User/Doctor/papers/libro_Deschamps/edk13.1/reconfig/XPS/pcores/fsl_rcopro_v1_00_a/hdl/vhdl/fsl_rcopro_scalar_multiplier.vhd" in Library work.
+WARNING:HDLParsers:3530 - Time stamp of file "C:/User/Doctor/papers/libro_Deschamps/edk13.1/reconfig/XPS/pcores/fsl_rcopro_v1_00_a/hdl/vhdl/fsl_rcopro_scalar_multiplier.vhd" is newer than current system time.
+Entity <fsl_rcopro_scalar_multiplier> compiled.
+Entity <fsl_rcopro_scalar_multiplier> (Architecture <beh1>) compiled.
+Compiling vhdl file "C:/User/Doctor/papers/libro_Deschamps/edk13.1/reconfig/XPS/pcores/fsl_rcopro_v1_00_a/hdl/vhdl/fsl_rcopro_determinant.vhd" in Library work.
+WARNING:HDLParsers:3530 - Time stamp of file "C:/User/Doctor/papers/libro_Deschamps/edk13.1/reconfig/XPS/pcores/fsl_rcopro_v1_00_a/hdl/vhdl/fsl_rcopro_determinant.vhd" is newer than current system time.
+Entity <fsl_rcopro_determinant> compiled.
+Entity <fsl_rcopro_determinant> (Architecture <beh1>) compiled.
+Compiling vhdl file "C:/User/Doctor/papers/libro_Deschamps/edk13.1/reconfig/XST/fsl_rcopro.vhd" in Library work.
+Entity <fsl_rcopro> compiled.
+Entity <fsl_rcopro> (Architecture <beh>) compiled.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <fsl_rcopro> in library <work> (architecture <beh>) with generics.
+	C_CONFIG_IDX = 3
+
+Analyzing hierarchy for entity <fsl_rcopro_scalar_multiplier> in library <work> (architecture <beh1>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing generic Entity <fsl_rcopro> in library <work> (Architecture <beh>).
+	C_CONFIG_IDX = 3
+WARNING:Xst:37 - Detected unknown constraint/property "SIGIS". This constraint/property is not supported by the current software release and will be ignored.
+WARNING:Xst:37 - Detected unknown constraint/property "SIGIS". This constraint/property is not supported by the current software release and will be ignored.
+WARNING:Xst:37 - Detected unknown constraint/property "SIGIS". This constraint/property is not supported by the current software release and will be ignored.
+Entity <fsl_rcopro> analyzed. Unit <fsl_rcopro> generated.
+
+Analyzing Entity <fsl_rcopro_scalar_multiplier> in library <work> (Architecture <beh1>).
+WARNING:Xst:37 - Detected unknown constraint/property "SIGIS". This constraint/property is not supported by the current software release and will be ignored.
+WARNING:Xst:37 - Detected unknown constraint/property "SIGIS". This constraint/property is not supported by the current software release and will be ignored.
+WARNING:Xst:37 - Detected unknown constraint/property "SIGIS". This constraint/property is not supported by the current software release and will be ignored.
+WARNING:Xst:790 - "C:/User/Doctor/papers/libro_Deschamps/edk13.1/reconfig/XPS/pcores/fsl_rcopro_v1_00_a/hdl/vhdl/fsl_rcopro_scalar_multiplier.vhd" line 125: Index value(s) does not match array range, simulation mismatch.
+INFO:Xst:1433 - Contents of array <reg_data> may be accessed with an index that exceeds the array size. This could cause simulation mismatch.
+Entity <fsl_rcopro_scalar_multiplier> analyzed. Unit <fsl_rcopro_scalar_multiplier> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <fsl_rcopro_scalar_multiplier>.
+    Related source file is "C:/User/Doctor/papers/libro_Deschamps/edk13.1/reconfig/XPS/pcores/fsl_rcopro_v1_00_a/hdl/vhdl/fsl_rcopro_scalar_multiplier.vhd".
+WARNING:Xst:647 - Input <FSL_M_Clk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <FSL_S_Clk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:646 - Signal <op0<63:32>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <idx_resdata> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <idx_data<4>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 4-bit up counter for signal <cnt_data>.
+    Found 4-bit up counter for signal <cnt_data0>.
+    Found 4-bit up counter for signal <cnt_step>.
+    Found 32x32-bit multiplier for signal <op0>.
+    Found 1-bit register for signal <ready>.
+    Found 320-bit register for signal <reg_data>.
+    Found 288-bit register for signal <reg_res>.
+    Found 4-bit adder for signal <start$addsub0000> created at line 82.
+    Found 1-bit register for signal <valid>.
+    Found 4-bit adder for signal <valid$addsub0000> created at line 138.
+INFO:Xst:738 - HDL ADVISOR - 288 flip-flops were inferred for signal <reg_res>. You may be trying to describe a RAM in a way that is incompatible with block and distributed RAM resources available on Xilinx devices, or with a specific template that is not supported. Please review the Xilinx resources documentation and the XST user manual for coding guidelines. Taking advantage of RAM resources will lead to improved device usage and reduced synthesis time.
+INFO:Xst:738 - HDL ADVISOR - 320 flip-flops were inferred for signal <reg_data>. You may be trying to describe a RAM in a way that is incompatible with block and distributed RAM resources available on Xilinx devices, or with a specific template that is not supported. Please review the Xilinx resources documentation and the XST user manual for coding guidelines. Taking advantage of RAM resources will lead to improved device usage and reduced synthesis time.
+    Summary:
+	inferred   3 Counter(s).
+	inferred 610 D-type flip-flop(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred   1 Multiplier(s).
+Unit <fsl_rcopro_scalar_multiplier> synthesized.
+
+
+Synthesizing Unit <fsl_rcopro>.
+    Related source file is "C:/User/Doctor/papers/libro_Deschamps/edk13.1/reconfig/XST/fsl_rcopro.vhd".
+Unit <fsl_rcopro> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Multipliers                                          : 1
+ 32x32-bit multiplier                                  : 1
+# Adders/Subtractors                                   : 2
+ 4-bit adder                                           : 2
+# Counters                                             : 3
+ 4-bit up counter                                      : 3
+# Registers                                            : 21
+ 1-bit register                                        : 2
+ 32-bit register                                       : 19
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+Synthesizing (advanced) Unit <fsl_rcopro_scalar_multiplier>.
+	Found pipelined multiplier on signal <op0>:
+		- 1 pipeline level(s) found in a register on signal <reg_data<0>>.
+		Pushing register(s) into the multiplier macro.
+
+		- 1 pipeline level(s) found in a register on signal <reg_data<1>>.
+		Pushing register(s) into the multiplier macro.
+INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier Mmult_op0 by adding 5 register level(s).
+Unit <fsl_rcopro_scalar_multiplier> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Multipliers                                          : 1
+ 32x32-bit registered multiplier                       : 1
+# Adders/Subtractors                                   : 2
+ 4-bit adder                                           : 2
+# Counters                                             : 3
+ 4-bit up counter                                      : 3
+# Registers                                            : 578
+ Flip-Flops                                            : 578
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:2677 - Node <Mmult_op03> of sequential type is unconnected in block <fsl_rcopro_scalar_multiplier>.
+
+Optimizing unit <fsl_rcopro> ...
+
+Optimizing unit <fsl_rcopro_scalar_multiplier> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+
+Final Macro Processing ...
+
+Processing Unit <fsl_rcopro> :
+	Found 8-bit shift register for signal <g3.inst/reg_res_0_31>.
+	Found 8-bit shift register for signal <g3.inst/reg_res_0_30>.
+	Found 8-bit shift register for signal <g3.inst/reg_res_0_29>.
+	Found 8-bit shift register for signal <g3.inst/reg_res_0_28>.
+	Found 8-bit shift register for signal <g3.inst/reg_res_0_27>.
+	Found 8-bit shift register for signal <g3.inst/reg_res_0_26>.
+	Found 8-bit shift register for signal <g3.inst/reg_res_0_25>.
+	Found 8-bit shift register for signal <g3.inst/reg_res_0_24>.
+	Found 8-bit shift register for signal <g3.inst/reg_res_0_23>.
+	Found 8-bit shift register for signal <g3.inst/reg_res_0_22>.
+	Found 8-bit shift register for signal <g3.inst/reg_res_0_21>.
+	Found 8-bit shift register for signal <g3.inst/reg_res_0_20>.
+	Found 8-bit shift register for signal <g3.inst/reg_res_0_19>.
+	Found 8-bit shift register for signal <g3.inst/reg_res_0_18>.
+	Found 8-bit shift register for signal <g3.inst/reg_res_0_17>.
+	Found 8-bit shift register for signal <g3.inst/reg_res_0_16>.
+	Found 8-bit shift register for signal <g3.inst/reg_res_0_15>.
+	Found 8-bit shift register for signal <g3.inst/reg_res_0_14>.
+	Found 8-bit shift register for signal <g3.inst/reg_res_0_13>.
+	Found 8-bit shift register for signal <g3.inst/reg_res_0_12>.
+	Found 8-bit shift register for signal <g3.inst/reg_res_0_11>.
+	Found 8-bit shift register for signal <g3.inst/reg_res_0_10>.
+	Found 8-bit shift register for signal <g3.inst/reg_res_0_9>.
+	Found 8-bit shift register for signal <g3.inst/reg_res_0_8>.
+	Found 8-bit shift register for signal <g3.inst/reg_res_0_7>.
+	Found 8-bit shift register for signal <g3.inst/reg_res_0_6>.
+	Found 8-bit shift register for signal <g3.inst/reg_res_0_5>.
+	Found 8-bit shift register for signal <g3.inst/reg_res_0_4>.
+	Found 8-bit shift register for signal <g3.inst/reg_res_0_3>.
+	Found 8-bit shift register for signal <g3.inst/reg_res_0_2>.
+	Found 8-bit shift register for signal <g3.inst/reg_res_0_1>.
+	Found 8-bit shift register for signal <g3.inst/reg_res_0_0>.
+Unit <fsl_rcopro> processed.
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 334
+ Flip-Flops                                            : 334
+# Shift Registers                                      : 32
+ 8-bit shift register                                  : 32
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+Top Level Output File Name         : fsl_rcopro_scalar_multiplier.ngc
+Output Format                      : ngc
+Optimization Goal                  : speed
+Keep Hierarchy                     : no
+
+Design Statistics
+# IOs                              : 74
+
+Cell Usage :
+# BELS                             : 356
+#      GND                         : 1
+#      INV                         : 4
+#      LUT2                        : 5
+#      LUT3                        : 325
+#      LUT4                        : 5
+#      LUT5                        : 2
+#      LUT6                        : 13
+#      VCC                         : 1
+# FlipFlops/Latches                : 366
+#      FDE                         : 352
+#      FDRE                        : 13
+#      FDSE                        : 1
+# Shift Registers                  : 32
+#      SRLC16E                     : 32
+# DSPs                             : 3
+#      DSP48E                      : 3
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 5vlx50ff676-1 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:             366  out of  28800     1%  
+ Number of Slice LUTs:                  386  out of  28800     1%  
+    Number used as Logic:               354  out of  28800     1%  
+    Number used as Memory:               32  out of   7680     0%  
+       Number used as SRL:               32
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:    387
+   Number with an unused Flip Flop:      21  out of    387     5%  
+   Number with an unused LUT:             1  out of    387     0%  
+   Number of fully used LUT-FF pairs:   365  out of    387    94%  
+   Number of unique control sets:        14
+
+IO Utilization: 
+ Number of IOs:                          74
+ Number of bonded IOBs:                   0  out of    440     0%  
+
+Specific Feature Utilization:
+ Number of DSP48Es:                       3  out of     48     6%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+-------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)   | Load  |
+-----------------------------------+-------------------------+-------+
+FSL_Clk                            | NONE(g3.inst/cnt_step_3)| 401   |
+-----------------------------------+-------------------------+-------+
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -1
+
+   Minimum period: 8.626ns (Maximum Frequency: 115.929MHz)
+   Minimum input arrival time before clock: 3.360ns
+   Maximum output required time after clock: 1.722ns
+   Maximum combinational path delay: 1.508ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'FSL_Clk'
+  Clock period: 8.626ns (frequency: 115.929MHz)
+  Total number of paths / destination ports: 60226 / 855
+-------------------------------------------------------------------------
+Delay:               8.626ns (Levels of Logic = 3)
+  Source:            g3.inst/Mmult_op0 (DSP)
+  Destination:       g3.inst/reg_res_8_31 (FF)
+  Source Clock:      FSL_Clk rising
+  Destination Clock: FSL_Clk rising
+
+  Data Path: g3.inst/Mmult_op0 to g3.inst/reg_res_8_31
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     DSP48E:CLK->PCOUT0    1   4.223   0.000  g3.inst/Mmult_op0 (g3.inst/Mmult_op0_PCOUT_to_Mmult_op01_PCIN_0)
+     DSP48E:PCIN0->PCOUT7    1   2.013   0.000  g3.inst/Mmult_op01 (g3.inst/Mmult_op01_PCOUT_to_Mmult_op02_PCIN_7)
+     DSP48E:PCIN7->P14     1   1.816   0.480  g3.inst/Mmult_op02 (g3.inst/op0<31>)
+     LUT3:I2->O            1   0.094   0.000  g3.inst/reg_res_8_mux0000<31>1 (g3.inst/reg_res_8_mux0000<31>)
+     FDE:D                    -0.018          g3.inst/reg_res_8_31
+    ----------------------------------------
+    Total                      8.626ns (8.146ns logic, 0.480ns route)
+                                       (94.4% logic, 5.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'FSL_Clk'
+  Total number of paths / destination ports: 1801 / 799
+-------------------------------------------------------------------------
+Offset:              3.360ns (Levels of Logic = 3)
+  Source:            FSL_S_Control (PAD)
+  Destination:       g3.inst/cnt_data_3 (FF)
+  Destination Clock: FSL_Clk rising
+
+  Data Path: FSL_S_Control to g3.inst/cnt_data_3
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LUT2:I0->O            3   0.094   1.080  g3.inst/wr_data_SW0 (N2)
+     LUT6:I0->O            5   0.094   0.811  g3.inst/wr_data (FSL_S_Read)
+     LUT6:I2->O            8   0.094   0.374  g3.inst/cnt_data0_or00001 (g3.inst/cnt_data0_or0000)
+     FDRE:R                    0.573          g3.inst/cnt_data0_0
+    ----------------------------------------
+    Total                      3.360ns (1.095ns logic, 2.265ns route)
+                                       (32.6% logic, 67.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'FSL_Clk'
+  Total number of paths / destination ports: 42 / 34
+-------------------------------------------------------------------------
+Offset:              1.722ns (Levels of Logic = 1)
+  Source:            g3.inst/ready (FF)
+  Destination:       FSL_S_Read (PAD)
+  Source Clock:      FSL_Clk rising
+
+  Data Path: g3.inst/ready to FSL_S_Read
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDSE:C->Q           339   0.471   1.157  g3.inst/ready (g3.inst/ready)
+     LUT6:I1->O            5   0.094   0.000  g3.inst/wr_data (FSL_S_Read)
+    ----------------------------------------
+    Total                      1.722ns (0.565ns logic, 1.157ns route)
+                                       (32.8% logic, 67.2% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 3 / 2
+-------------------------------------------------------------------------
+Delay:               1.508ns (Levels of Logic = 2)
+  Source:            FSL_S_Control (PAD)
+  Destination:       FSL_S_Read (PAD)
+
+  Data Path: FSL_S_Control to FSL_S_Read
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LUT2:I0->O            3   0.094   1.080  g3.inst/wr_data_SW0 (N2)
+     LUT6:I0->O            5   0.094   0.000  g3.inst/wr_data (FSL_S_Read)
+    ----------------------------------------
+    Total                      1.508ns (0.428ns logic, 1.080ns route)
+                                       (28.4% logic, 71.6% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 10.00 secs
+Total CPU time to Xst completion: 10.45 secs
+ 
+--> 
+
+Total memory usage is 248012 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   16 (   0 filtered)
+Number of infos    :    5 (   0 filtered)
+

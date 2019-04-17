@@ -1,0 +1,8 @@
+vhdl work ..\XPS\pcores\fsl_rcopro_v1_00_a\hdl\vhdl\fsl_rcopro_dummy.vhd
+vhdl work ..\XPS\pcores\fsl_rcopro_v1_00_a\hdl\vhdl\fsl_rcopro_adder.vhd
+vhdl work ..\XPS\pcores\fsl_rcopro_v1_00_a\hdl\vhdl\fsl_rcopro_multiplier.vhd
+vhdl work ..\XPS\pcores\fsl_rcopro_v1_00_a\hdl\vhdl\fsl_rcopro_scalar_multiplier.vhd
+vhdl work ..\XPS\pcores\fsl_rcopro_v1_00_a\hdl\vhdl\fsl_rcopro_determinant.vhd
+
+vhdl work fsl_rcopro.vhd
+

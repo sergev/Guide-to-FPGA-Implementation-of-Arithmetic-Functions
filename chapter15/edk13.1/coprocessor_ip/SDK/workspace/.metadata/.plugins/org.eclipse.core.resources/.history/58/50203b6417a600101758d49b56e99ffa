@@ -1,0 +1,203 @@
+//#define CIPHER_DISABLE			//comment to enable encryption/decryption
+#define CIPHER_CHRONOMETER		//comment to disable chronometer of encryption/decryption
+#define INPUT_NCHARS (10)		//maximum length of received messages
+
+#include <xgpio_l.h>			//declaration of XGPIO_REGISTER_OFFSET
+#include <xuartlite_l.h>		//declaration of XUartLite_RecvByte() function
+#include <xparameters.h>		//declaration of XPAR_INSTANCE_BASEADDR's
+#include "caes128.h"			//declaration of the Class CAES128
+#include "cchronometer.h"		//declaration of the Class CChronometer
+
+CAES128 Cipher;					//Object to the cipher class
+bool quit=false;
+#ifdef CIPHER_CHRONOMETER
+	CChronometer Chrono(XPAR_TIMER_BASEADDR,0);
+	volatile unsigned long EncryptCycles=0; volatile unsigned int EncryptIters=0; volatile unsigned int EncryptMaxCycles=0;
+	volatile unsigned long DecryptCycles=0; volatile unsigned int DecryptIters=0; volatile unsigned int DecryptMaxCycles=0;
+#endif
+
+/***************************************************************/
+inline void gpio_set(char d)
+{//Read the GPIO ports
+*(volatile int*)(XPAR_GPIO_BASEADDR+XGPIO_DATA_OFFSET)=(int)d;
+}
+/***************************************************************/
+inline char gpio_get()
+{//Set the GPIO ports
+return (char)(*(volatile int*)(XPAR_GPIO_BASEADDR+XGPIO_DATA_OFFSET));
+}
+/***************************************************************/
+inline void gpio_init()
+{//Configures the GPIO ports: 2 bits as inputs (switches) and 2 bits as outputs (leds)
+gpio_set(0);
+*(volatile int*)(XPAR_GPIO_BASEADDR+XGPIO_TRI_OFFSET)=(int)0xC;
+}
+/***************************************************************/
+void get_rs232_cipher(char *string, unsigned int max)
+{//Encrypts a message to transmit (ECB, ANSI X.923 padding)
+unsigned char block[AES128_BLOCK_SIZE/8];
+unsigned int k=0;
+char c=0xFF;
+#ifndef CIPHER_DISABLE
+	#ifdef CIPHER_CHRONOMETER
+	volatile unsigned long &cycles=DecryptCycles;
+	volatile unsigned int &iters=DecryptIters;
+	volatile unsigned int &maxcycles=DecryptMaxCycles;
+	#endif
+#endif
+do
+	{
+	for(unsigned char j=0; j<AES128_BLOCK_SIZE/8; j++)
+		block[j]=XUartLite_RecvByte(XPAR_RS232_BASEADDR);
+
+	#ifndef CIPHER_DISABLE
+		#ifdef CIPHER_CHRONOMETER
+		Chrono.Start();
+		#endif
+	Cipher.Decrypt(block,block);
+		#ifdef CIPHER_CHRONOMETER
+		Chrono.Stop();
+		if(Chrono.Read()>maxcycles) maxcycles=Chrono.Read();
+		cycles+=Chrono.Read();
+		iters++;
+		#endif
+	#endif
+	
+	for(unsigned char j=0; j<AES128_BLOCK_SIZE/8; j++)
+		{if(k==max) c=0x00;
+		if(c) c=block[j];
+		string[k++]=c;}
+		
+	} while(c);
+}
+/***************************************************************/
+void send_rs232_cipher(char *string)
+{//Decrypts the received message (ECB, ANSI X.923 padding)
+unsigned char block[AES128_BLOCK_SIZE/8];
+unsigned int k=0;
+char c=0xFF;
+#ifndef CIPHER_DISABLE
+	#ifdef CIPHER_CHRONOMETER
+	volatile unsigned long &cycles=EncryptCycles;
+	volatile unsigned int &iters=EncryptIters;
+	volatile unsigned int &maxcycles=EncryptMaxCycles;
+	#endif
+#endif
+do
+	{
+	for(unsigned char j=0; j<AES128_BLOCK_SIZE/8; j++)
+		{if(c) c=string[k++];
+		block[j]=c;}
+
+	#ifndef CIPHER_DISABLE
+		#ifdef CIPHER_CHRONOMETER
+		Chrono.Start();
+		#endif
+	Cipher.Encrypt(block,block);
+		#ifdef CIPHER_CHRONOMETER
+		Chrono.Stop();
+		if(Chrono.Read()>maxcycles) maxcycles=Chrono.Read();
+		cycles+=Chrono.Read();
+		iters++;
+		#endif
+	#endif
+	
+	for(unsigned char j=0; j<AES128_BLOCK_SIZE/8; j++)
+		XUartLite_SendByte(XPAR_RS232_BASEADDR,block[j]);
+	
+	} while(c);
+}
+/***************************************************************/
+bool check_rs232()
+{//Check overrun or framing errors in the serial communication
+char status=XUartLite_GetStatusReg(XPAR_RS232_BASEADDR);
+char overrun=status&XUL_SR_OVERRUN_ERROR;
+char framming=status&XUL_SR_FRAMING_ERROR;
+if(!overrun && !framming)
+	return true;
+if(overrun)
+	send_rs232_cipher("OVERRUN ");
+if(framming)
+	send_rs232_cipher("FRAME ");
+send_rs232_cipher("ERROR\n");
+return false;
+}
+/***************************************************************/
+bool parser(char *cmd_ref,char *cmd_usr,char &bit_idx,char &bit_val)
+{
+bool match=true;
+bit_idx=-1; bit_val=-1;
+for(unsigned char j=0; match; j++)
+	{
+	char c1=cmd_ref[j];
+	char c2=cmd_usr[j];
+	if(c1=='#' && c2>='0' && c2<='3')
+		{bit_idx=c2-'0'; continue;}
+	if(c1=='$' && c2>='0' && c2<='1')
+		{bit_val=c2-'0'; continue;}
+	if(c1!=c2)
+		match=false;
+	if(c1==0x00 || c2==0x00)
+		break;
+	}
+return match;
+}
+/***************************************************************/
+char* get_bit(unsigned char idx)
+{//Read a GPIO bit
+static char status[]="bit#=$\n";
+char bit=(gpio_get()>>idx)&0x01;
+status[3]='0'+idx;
+status[5]='0'+bit;
+return status;
+}
+/***************************************************************/
+void set_bit(unsigned char idx,unsigned char bit)
+{//Set a GPIO bit
+char mask=0x01<<idx;
+char val=(bit)? gpio_get()|(mask) : gpio_get()&(~mask); 
+gpio_set(val);
+}
+/***************************************************************/
+void command(char *string)
+{//Command parser
+const char *STR[]={"?\n","quit\n","status\n","get #\n","set # $\n",NULL};
+unsigned char j=0;
+char *str;
+char bit_idx,bit_val;
+while((str=(char*)STR[j])!=NULL)
+	{if(parser(str,string,bit_idx,bit_val))
+		break;
+	j++;}
+
+switch(j)
+	{
+	case 0: send_rs232_cipher("COMMANDS:\n"); j=0; while(STR[j]!=NULL) {send_rs232_cipher((char*)STR[j++]);} send_rs232_cipher("#=bit index (0 to 3) $=bit value (0 to 1)\n");break;
+	case 1: quit=true; break;
+	case 2: send_rs232_cipher("STATUS:\n"); j=0; while(j<4) {send_rs232_cipher(get_bit(j++));} break;
+	case 3: send_rs232_cipher(get_bit(bit_idx)); break;
+	case 4: set_bit(bit_idx,bit_val); break;
+	default: send_rs232_cipher("UNKNOW "); send_rs232_cipher(string); break;
+	}
+}
+/***************************************************************/
+int main()
+{
+unsigned char key[AES128_KEY_SIZE/8]={'0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'};
+char input[INPUT_NCHARS+1];
+
+gpio_init();
+Cipher.SetKey(key);
+send_rs232_cipher("\nSTART\n");
+while(!quit)
+	{
+	send_rs232_cipher("Enter CMD: ");
+	XUartLite_SetControlReg(XPAR_RS232_BASEADDR,XUL_CR_FIFO_RX_RESET);	//Reset the receiving buffer
+	get_rs232_cipher(input,INPUT_NCHARS);
+	if(check_rs232())	//Check overrun or framing errors
+		command(input);	//Parse the received command
+	}
+send_rs232_cipher("END\n");
+
+return 0;
+}

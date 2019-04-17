@@ -1,0 +1,78 @@
+Release 13.1 - pr_verify O.40d (nt)
+Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
+Sat Apr 16 01:35:46 2011
+
+Command Line: C:\Tecno\Xilinx\13.1\ISE_DS\ISE\bin\nt\unwrapped\pr_verify.exe -o
+C:\User\Doctor\papers\libro_Deschamps\edk13.1\reconfig\XST\pr_verify.log
+C:\User\Doctor\papers\libro_Deschamps\edk13.1\reconfig\PlanAhead\PlanAhead.runs\
+config_dummy\config_dummy_routed.ncd
+C:\User\Doctor\papers\libro_Deschamps\edk13.1\reconfig\PlanAhead\PlanAhead.runs\
+config_adder\config_adder_routed.ncd
+C:\User\Doctor\papers\libro_Deschamps\edk13.1\reconfig\PlanAhead\PlanAhead.runs\
+config_substractor\config_substractor_routed.ncd
+
+Loading
+C:\User\Doctor\papers\libro_Deschamps\edk13.1\reconfig\PlanAhead\PlanAhead.runs\
+config_dummy\config_dummy_routed.ncd:  Sat Apr 16 01:21:53 2011
+Loading
+C:\User\Doctor\papers\libro_Deschamps\edk13.1\reconfig\PlanAhead\PlanAhead.runs\
+config_adder\config_adder_routed.ncd:  Sat Apr 16 01:27:32 2011
+Loading
+C:\User\Doctor\papers\libro_Deschamps\edk13.1\reconfig\PlanAhead\PlanAhead.runs\
+config_substractor\config_substractor_routed.ncd:  Sat Apr 16 01:27:38 2011
+
+----------------------------------------
+Analyzing Designs:
+ 
+C:\User\Doctor\papers\libro_Deschamps\edk13.1\reconfig\PlanAhead\PlanAhead.runs\
+config_dummy\config_dummy_routed.ncd
+ 
+C:\User\Doctor\papers\libro_Deschamps\edk13.1\reconfig\PlanAhead\PlanAhead.runs\
+config_adder\config_adder_routed.ncd
+
+  Number of matched proxy logic bels          = 73
+  Number of matched external nets             = 73
+  Number of matched global clock nets         = 3
+  Number of matched Reconfigurable Partitions = 0
+
+SUCCESS!
+
+----------------------------------------
+Analyzing Designs:
+ 
+C:\User\Doctor\papers\libro_Deschamps\edk13.1\reconfig\PlanAhead\PlanAhead.runs\
+config_adder\config_adder_routed.ncd
+ 
+C:\User\Doctor\papers\libro_Deschamps\edk13.1\reconfig\PlanAhead\PlanAhead.runs\
+config_substractor\config_substractor_routed.ncd
+
+  Number of matched proxy logic bels          = 73
+  Number of matched external nets             = 73
+  Number of matched global clock nets         = 3
+  Number of matched Reconfigurable Partitions = 0
+
+SUCCESS!
+
+----------------------------------------
+Analyzing Designs:
+ 
+C:\User\Doctor\papers\libro_Deschamps\edk13.1\reconfig\PlanAhead\PlanAhead.runs\
+config_substractor\config_substractor_routed.ncd
+ 
+C:\User\Doctor\papers\libro_Deschamps\edk13.1\reconfig\PlanAhead\PlanAhead.runs\
+config_dummy\config_dummy_routed.ncd
+
+  Number of matched proxy logic bels          = 73
+  Number of matched external nets             = 73
+  Number of matched global clock nets         = 3
+  Number of matched Reconfigurable Partitions = 0
+
+SUCCESS!
+
+C:\Tecno\Xilinx\13.1\ISE_DS\ISE\bin\nt\unwrapped\pr_verify.exe
+C:\User\Doctor\papers\libro_Deschamps\edk13.1\reconfig\PlanAhead\PlanAhead.runs\
+config_dummy\config_dummy_routed.ncd
+C:\User\Doctor\papers\libro_Deschamps\edk13.1\reconfig\PlanAhead\PlanAhead.runs\
+config_adder\config_adder_routed.ncd
+C:\User\Doctor\papers\libro_Deschamps\edk13.1\reconfig\PlanAhead\PlanAhead.runs\
+config_substractor\config_substractor_routed.ncd => PASS

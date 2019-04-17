@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="6">
+	<Run Id="config_dummy" Type="Ft2:EntireDesign" SrcSet="sources_1" Part="xc5vlx50ff676-1" ConstrsSet="constrs_1" State="current" Dir="$PRUNDIR/config_dummy" LaunchTime="1304165505">
+		<File Type="PA-EDIF" Name="config_dummy.edf"/>
+		<File Type="PAR-PAD" Name="config_dummy_routed_pad.txt"/>
+		<File Type="PA-UCF" Name="config_dummy.ucf"/>
+		<File Type="PAR-PAR" Name="config_dummy_routed.par"/>
+		<File Type="PAR-UNR" Name="config_dummy_routed.unroutes"/>
+		<File Type="BG-BIT" Name="config_dummy.bit"/>
+		<File Type="BG-DRC" Name="config_dummy.drc"/>
+		<File Type="BG-BGN" Name="config_dummy.bgn"/>
+		<File Type="TRCE-TWR" Name="config_dummy.twr"/>
+		<File Type="PA-CONSTRSDIR" Name=".constrs"/>
+		<File Type="TRCE-TWX" Name="config_dummy.twx"/>
+		<File Type="XDL-XDL" Name="config_dummy_routed.xdl"/>
+		<File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+		<File Type="WBT-LOG" Name="webtalk.log"/>
+		<File Type="RUN-SRCS" Name="$PDATADIR/runs/config_dummy/sources.xml"/>
+		<File Type="RUN-CONSTRS" Name="$PDATADIR/runs/config_dummy/constrs_in.xml"/>
+		<File Type="RUN-HDXML" Name="$PDATADIR/runs/config_dummy/hd.xml"/>
+		<File Type="NGDB-NGD" Name="config_dummy.ngd"/>
+		<File Type="NGDB-BLD" Name="config_dummy.bld"/>
+		<File Type="MAP-NCD" Name="config_dummy.ncd"/>
+		<File Type="MAP-PCF" Name="config_dummy.pcf"/>
+		<File Type="MAP-MRP" Name="config_dummy.mrp"/>
+		<File Type="MAP-MAP" Name="config_dummy.map"/>
+		<File Type="MAP-PSR" Name="config_dummy.psr"/>
+		<File Type="PAR-NCD" Name="config_dummy_routed.ncd"/>
+	</Run>
+	<Run Id="config_adder" Type="Ft2:EntireDesign" SrcSet="sources_1" Part="xc5vlx50ff676-1" ConstrsSet="constrs_1" Dir="$PRUNDIR/config_adder" LaunchTime="1304165812">
+		<File Type="PA-EDIF" Name="config_adder.edf"/>
+		<File Type="PAR-PAD" Name="config_adder_routed_pad.txt"/>
+		<File Type="PA-UCF" Name="config_adder.ucf"/>
+		<File Type="PAR-PAR" Name="config_adder_routed.par"/>
+		<File Type="PAR-UNR" Name="config_adder_routed.unroutes"/>
+		<File Type="BG-BIT" Name="config_adder.bit"/>
+		<File Type="BG-DRC" Name="config_adder.drc"/>
+		<File Type="BG-BGN" Name="config_adder.bgn"/>
+		<File Type="TRCE-TWR" Name="config_adder.twr"/>
+		<File Type="PA-CONSTRSDIR" Name=".constrs"/>
+		<File Type="TRCE-TWX" Name="config_adder.twx"/>
+		<File Type="XDL-XDL" Name="config_adder_routed.xdl"/>
+		<File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+		<File Type="WBT-LOG" Name="webtalk.log"/>
+		<File Type="RUN-SRCS" Name="$PDATADIR/runs/config_adder/sources.xml"/>
+		<File Type="RUN-CONSTRS" Name="$PDATADIR/runs/config_adder/constrs_in.xml"/>
+		<File Type="RUN-HDXML" Name="$PDATADIR/runs/config_adder/hd.xml"/>
+		<File Type="NGDB-NGD" Name="config_adder.ngd"/>
+		<File Type="NGDB-BLD" Name="config_adder.bld"/>
+		<File Type="MAP-NCD" Name="config_adder.ncd"/>
+		<File Type="MAP-PCF" Name="config_adder.pcf"/>
+		<File Type="MAP-MRP" Name="config_adder.mrp"/>
+		<File Type="MAP-MAP" Name="config_adder.map"/>
+		<File Type="MAP-PSR" Name="config_adder.psr"/>
+		<File Type="PAR-NCD" Name="config_adder_routed.ncd"/>
+	</Run>
+	<Run Id="config_multiplier" Type="Ft2:EntireDesign" SrcSet="sources_1" Part="xc5vlx50ff676-1" ConstrsSet="constrs_1" Dir="$PRUNDIR/config_multiplier" LaunchTime="1304165818">
+		<File Type="PA-EDIF" Name="config_multiplier.edf"/>
+		<File Type="PAR-PAD" Name="config_multiplier_routed_pad.txt"/>
+		<File Type="PA-UCF" Name="config_multiplier.ucf"/>
+		<File Type="PAR-PAR" Name="config_multiplier_routed.par"/>
+		<File Type="PAR-UNR" Name="config_multiplier_routed.unroutes"/>
+		<File Type="BG-BIT" Name="config_multiplier.bit"/>
+		<File Type="BG-DRC" Name="config_multiplier.drc"/>
+		<File Type="BG-BGN" Name="config_multiplier.bgn"/>
+		<File Type="TRCE-TWR" Name="config_multiplier.twr"/>
+		<File Type="PA-CONSTRSDIR" Name=".constrs"/>
+		<File Type="TRCE-TWX" Name="config_multiplier.twx"/>
+		<File Type="XDL-XDL" Name="config_multiplier_routed.xdl"/>
+		<File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+		<File Type="WBT-LOG" Name="webtalk.log"/>
+		<File Type="RUN-SRCS" Name="$PDATADIR/runs/config_multiplier/sources.xml"/>
+		<File Type="RUN-CONSTRS" Name="$PDATADIR/runs/config_multiplier/constrs_in.xml"/>
+		<File Type="RUN-HDXML" Name="$PDATADIR/runs/config_multiplier/hd.xml"/>
+		<File Type="NGDB-NGD" Name="config_multiplier.ngd"/>
+		<File Type="NGDB-BLD" Name="config_multiplier.bld"/>
+		<File Type="MAP-NCD" Name="config_multiplier.ncd"/>
+		<File Type="MAP-PCF" Name="config_multiplier.pcf"/>
+		<File Type="MAP-MRP" Name="config_multiplier.mrp"/>
+		<File Type="MAP-MAP" Name="config_multiplier.map"/>
+		<File Type="MAP-PSR" Name="config_multiplier.psr"/>
+		<File Type="PAR-NCD" Name="config_multiplier_routed.ncd"/>
+	</Run>
+	<Run Id="config_scalar_multiplier" Type="Ft2:EntireDesign" SrcSet="sources_1" Part="xc5vlx50ff676-1" ConstrsSet="constrs_1" Dir="$PRUNDIR/config_scalar_multiplier" LaunchTime="1304165824">
+		<File Type="PA-EDIF" Name="config_scalar_multiplier.edf"/>
+		<File Type="PAR-PAD" Name="config_scalar_multiplier_routed_pad.txt"/>
+		<File Type="PA-UCF" Name="config_scalar_multiplier.ucf"/>
+		<File Type="PAR-PAR" Name="config_scalar_multiplier_routed.par"/>
+		<File Type="PAR-UNR" Name="config_scalar_multiplier_routed.unroutes"/>
+		<File Type="BG-BIT" Name="config_scalar_multiplier.bit"/>
+		<File Type="BG-DRC" Name="config_scalar_multiplier.drc"/>
+		<File Type="BG-BGN" Name="config_scalar_multiplier.bgn"/>
+		<File Type="TRCE-TWR" Name="config_scalar_multiplier.twr"/>
+		<File Type="PA-CONSTRSDIR" Name=".constrs"/>
+		<File Type="TRCE-TWX" Name="config_scalar_multiplier.twx"/>
+		<File Type="XDL-XDL" Name="config_scalar_multiplier_routed.xdl"/>
+		<File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+		<File Type="WBT-LOG" Name="webtalk.log"/>
+		<File Type="RUN-SRCS" Name="$PDATADIR/runs/config_scalar_multiplier/sources.xml"/>
+		<File Type="RUN-CONSTRS" Name="$PDATADIR/runs/config_scalar_multiplier/constrs_in.xml"/>
+		<File Type="RUN-HDXML" Name="$PDATADIR/runs/config_scalar_multiplier/hd.xml"/>
+		<File Type="NGDB-NGD" Name="config_scalar_multiplier.ngd"/>
+		<File Type="NGDB-BLD" Name="config_scalar_multiplier.bld"/>
+		<File Type="MAP-NCD" Name="config_scalar_multiplier.ncd"/>
+		<File Type="MAP-PCF" Name="config_scalar_multiplier.pcf"/>
+		<File Type="MAP-MRP" Name="config_scalar_multiplier.mrp"/>
+		<File Type="MAP-MAP" Name="config_scalar_multiplier.map"/>
+		<File Type="MAP-PSR" Name="config_scalar_multiplier.psr"/>
+		<File Type="PAR-NCD" Name="config_scalar_multiplier_routed.ncd"/>
+	</Run>
+	<Run Id="config_determinant" Type="Ft2:EntireDesign" SrcSet="sources_1" Part="xc5vlx50ff676-1" ConstrsSet="constrs_1" Dir="$PRUNDIR/config_determinant" LaunchTime="1304165828">
+		<File Type="PA-EDIF" Name="config_determinant.edf"/>
+		<File Type="PAR-PAD" Name="config_determinant_routed_pad.txt"/>
+		<File Type="PA-UCF" Name="config_determinant.ucf"/>
+		<File Type="PAR-PAR" Name="config_determinant_routed.par"/>
+		<File Type="PAR-UNR" Name="config_determinant_routed.unroutes"/>
+		<File Type="BG-BIT" Name="config_determinant.bit"/>
+		<File Type="BG-DRC" Name="config_determinant.drc"/>
+		<File Type="BG-BGN" Name="config_determinant.bgn"/>
+		<File Type="TRCE-TWR" Name="config_determinant.twr"/>
+		<File Type="PA-CONSTRSDIR" Name=".constrs"/>
+		<File Type="TRCE-TWX" Name="config_determinant.twx"/>
+		<File Type="XDL-XDL" Name="config_determinant_routed.xdl"/>
+		<File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+		<File Type="WBT-LOG" Name="webtalk.log"/>
+		<File Type="RUN-SRCS" Name="$PDATADIR/runs/config_determinant/sources.xml"/>
+		<File Type="RUN-CONSTRS" Name="$PDATADIR/runs/config_determinant/constrs_in.xml"/>
+		<File Type="RUN-HDXML" Name="$PDATADIR/runs/config_determinant/hd.xml"/>
+		<File Type="NGDB-NGD" Name="config_determinant.ngd"/>
+		<File Type="NGDB-BLD" Name="config_determinant.bld"/>
+		<File Type="MAP-NCD" Name="config_determinant.ncd"/>
+		<File Type="MAP-PCF" Name="config_determinant.pcf"/>
+		<File Type="MAP-MRP" Name="config_determinant.mrp"/>
+		<File Type="MAP-MAP" Name="config_determinant.map"/>
+		<File Type="MAP-PSR" Name="config_determinant.psr"/>
+		<File Type="PAR-NCD" Name="config_determinant_routed.ncd"/>
+	</Run>
+</Runs>
+

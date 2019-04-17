@@ -1,0 +1,12 @@
+##############################################################################
+## Filename:          plb_led7seg_v2_1_0.pao
+## Description:       Peripheral Analysis Order
+## Date:               (by Create and Import Peripheral Wizard)
+##############################################################################
+
+lib proc_common_v3_00_a  all 
+lib plbv46_slave_single_v1_01_a  all 
+
+lib plb_led7seg_v1_00_a led7seg vhdl	##Added led7seg.vhd
+lib plb_led7seg_v1_00_a user_logic vhdl
+lib plb_led7seg_v1_00_a plb_led7seg vhdl

@@ -1,0 +1,184 @@
+
+# ##############################################################################
+# Created by Base System Builder Wizard for Xilinx EDK 13.1 Build EDK_O.40d
+# Target Board:  Custom
+# Family:    spartan3
+# Device:    xc3s50
+# Package:   pq208
+# Speed Grade:  -4
+# Processor number: 1
+# Processor 1: microblaze_0
+# System clock frequency: 66.7
+# Debug Interface: On-Chip HW Debug Module
+# ##############################################################################
+ PARAMETER VERSION = 2.1.0
+
+
+ PORT fpga_0_clk_1_sys_clk_pin = CLK_S, DIR = I, SIGIS = CLK, CLK_FREQ = 50000000
+ PORT fpga_0_rst_1_sys_rst_pin = sys_rst_s, DIR = I, SIGIS = RST, RST_POLARITY = 1
+ PORT fpga_0_led7seg_dot_pin = net_vcc, DIR = O
+ PORT fpga_0_RX_pin = rs232_RX, DIR = I
+ PORT fpga_0_TX_pin = rs232_TX, DIR = O
+ PORT fpga_0_gpio_pin = gpio_GPIO_IO, DIR = IO, VEC = [3:0]
+
+
+BEGIN xps_gpio
+ PARAMETER INSTANCE = gpio
+ PARAMETER HW_VER = 2.00.a
+ PARAMETER C_GPIO_WIDTH = 4
+ PARAMETER C_BASEADDR = 0x82400000
+ PARAMETER C_HIGHADDR = 0x8240ffff
+ BUS_INTERFACE SPLB = mb_plb
+ PORT GPIO_IO = gpio_GPIO_IO
+END
+
+BEGIN proc_sys_reset
+ PARAMETER INSTANCE = proc_sys_reset_0
+ PARAMETER C_EXT_RESET_HIGH = 1
+ PARAMETER HW_VER = 3.00.a
+ PORT Slowest_sync_clk = sys_clk
+ PORT Ext_Reset_In = sys_rst_s
+ PORT MB_Debug_Sys_Rst = Debug_SYS_Rst
+ PORT Dcm_locked = Dcm_all_locked
+ PORT MB_Reset = mb_reset
+ PORT Bus_Struct_Reset = sys_bus_reset
+ PORT Peripheral_Reset = sys_periph_reset
+END
+
+BEGIN microblaze
+ PARAMETER INSTANCE = microblaze_0
+ PARAMETER C_AREA_OPTIMIZED = 1
+ PARAMETER C_USE_BARREL = 1
+ PARAMETER C_DEBUG_ENABLED = 1
+ PARAMETER HW_VER = 8.10.a
+ PARAMETER C_FSL_LINKS = 1
+ BUS_INTERFACE DLMB = dlmb
+ BUS_INTERFACE ILMB = ilmb
+ BUS_INTERFACE DPLB = mb_plb
+ BUS_INTERFACE IPLB = mb_plb
+ BUS_INTERFACE DEBUG = microblaze_0_mdm_bus
+ BUS_INTERFACE SFSL0 = fsl_mixcolumns_0_to_microblaze_0
+ BUS_INTERFACE MFSL0 = microblaze_0_to_fsl_mixcolumns_0
+ PORT MB_RESET = mb_reset
+ PORT INTERRUPT = timer_Interrupt
+END
+
+BEGIN mdm
+ PARAMETER INSTANCE = mdm_0
+ PARAMETER C_MB_DBG_PORTS = 1
+ PARAMETER C_USE_UART = 1
+ PARAMETER HW_VER = 2.00.b
+ PARAMETER C_BASEADDR = 0x84400000
+ PARAMETER C_HIGHADDR = 0x8440ffff
+ BUS_INTERFACE SPLB = mb_plb
+ BUS_INTERFACE MBDEBUG_0 = microblaze_0_mdm_bus
+ PORT Debug_SYS_Rst = Debug_SYS_Rst
+END
+
+BEGIN plb_v46
+ PARAMETER INSTANCE = mb_plb
+ PARAMETER HW_VER = 1.05.a
+ PORT PLB_Clk = sys_clk
+ PORT SYS_Rst = sys_bus_reset
+END
+
+BEGIN bram_block
+ PARAMETER INSTANCE = lmb_bram
+ PARAMETER HW_VER = 1.00.a
+ BUS_INTERFACE PORTA = ilmb_port
+ BUS_INTERFACE PORTB = dlmb_port
+END
+
+BEGIN lmb_bram_if_cntlr
+ PARAMETER INSTANCE = ilmb_cntlr
+ PARAMETER HW_VER = 3.00.a
+ PARAMETER C_BASEADDR = 0x00000000
+ PARAMETER C_HIGHADDR = 0x00003fff
+ BUS_INTERFACE SLMB = ilmb
+ BUS_INTERFACE BRAM_PORT = ilmb_port
+END
+
+BEGIN lmb_v10
+ PARAMETER INSTANCE = ilmb
+ PARAMETER HW_VER = 2.00.a
+ PORT LMB_Clk = sys_clk
+ PORT SYS_Rst = sys_bus_reset
+END
+
+BEGIN lmb_bram_if_cntlr
+ PARAMETER INSTANCE = dlmb_cntlr
+ PARAMETER HW_VER = 3.00.a
+ PARAMETER C_BASEADDR = 0x00000000
+ PARAMETER C_HIGHADDR = 0x00003fff
+ BUS_INTERFACE SLMB = dlmb
+ BUS_INTERFACE BRAM_PORT = dlmb_port
+END
+
+BEGIN lmb_v10
+ PARAMETER INSTANCE = dlmb
+ PARAMETER HW_VER = 2.00.a
+ PORT LMB_Clk = sys_clk
+ PORT SYS_Rst = sys_bus_reset
+END
+
+BEGIN clock_generator
+ PARAMETER INSTANCE = clock_generator_0
+ PARAMETER C_CLKIN_FREQ = 50000000
+ PARAMETER C_CLKOUT0_FREQ = 50000000
+ PARAMETER C_CLKOUT0_PHASE = 0
+ PARAMETER C_CLKOUT0_GROUP = NONE
+ PARAMETER C_CLKOUT0_BUF = TRUE
+ PARAMETER C_EXT_RESET_HIGH = 1
+ PARAMETER HW_VER = 4.01.a
+ PORT CLKIN = CLK_S
+ PORT CLKOUT0 = sys_clk
+ PORT RST = sys_rst_s
+ PORT LOCKED = Dcm_all_locked
+END
+
+BEGIN xps_timer
+ PARAMETER INSTANCE = timer
+ PARAMETER HW_VER = 1.02.a
+ PARAMETER C_ONE_TIMER_ONLY = 1
+ PARAMETER C_BASEADDR = 0x83c00000
+ PARAMETER C_HIGHADDR = 0x83c0ffff
+ BUS_INTERFACE SPLB = mb_plb
+ PORT Interrupt = timer_Interrupt
+END
+
+BEGIN xps_uartlite
+ PARAMETER INSTANCE = rs232
+ PARAMETER HW_VER = 1.01.a
+ PARAMETER C_BAUDRATE = 115200
+ PARAMETER C_USE_PARITY = 0
+ PARAMETER C_BASEADDR = 0x84000000
+ PARAMETER C_HIGHADDR = 0x8400ffff
+ BUS_INTERFACE SPLB = mb_plb
+ PORT RX = rs232_RX
+ PORT TX = rs232_TX
+END
+
+BEGIN fsl_v20
+ PARAMETER INSTANCE = fsl_mixcolumns_0_to_microblaze_0
+ PARAMETER HW_VER = 2.11.d
+ PARAMETER C_EXT_RESET_HIGH = 1
+ PORT FSL_Clk = sys_clk
+ PORT SYS_Rst = sys_bus_reset
+END
+
+BEGIN fsl_mixcolumns
+ PARAMETER INSTANCE = fsl_mixcolumns_0
+ PARAMETER HW_VER = 1.00.a
+ BUS_INTERFACE MFSL = fsl_mixcolumns_0_to_microblaze_0
+ BUS_INTERFACE SFSL = microblaze_0_to_fsl_mixcolumns_0
+ PORT FSL_Clk = sys_clk
+END
+
+BEGIN fsl_v20
+ PARAMETER INSTANCE = microblaze_0_to_fsl_mixcolumns_0
+ PARAMETER HW_VER = 2.11.d
+ PARAMETER C_EXT_RESET_HIGH = 1
+ PORT FSL_Clk = sys_clk
+ PORT SYS_Rst = sys_bus_reset
+END
+

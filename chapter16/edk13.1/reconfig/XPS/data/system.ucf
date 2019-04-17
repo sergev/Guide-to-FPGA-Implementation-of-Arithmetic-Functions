@@ -1,0 +1,54 @@
+#  Generic Template
+Net fpga_0_clk_1_sys_clk_pin TNM_NET = sys_clk_pin;
+TIMESPEC TS_sys_clk_pin = PERIOD sys_clk_pin 100000 kHz;
+## Net fpga_0_clk_1_sys_clk_pin LOC=;
+Net fpga_0_rst_1_sys_rst_pin TIG;
+## Net fpga_0_rst_1_sys_rst_pin LOC=;
+
+
+Net fpga_0_clk_1_sys_clk_pin LOC=E18;
+Net fpga_0_rst_1_sys_rst_pin LOC=B1;
+Net fpga_0_RS232_RX_pin LOC=AB7;
+Net fpga_0_RS232_TX_pin LOC=AC6;
+
+
+#  FLASH 28F128J3D (16MB)
+Net fpga_0_flash_A_pin<0> LOC=H8 | IOSTANDARD = LVCMOS33;
+Net fpga_0_flash_A_pin<1> LOC=H9 | IOSTANDARD = LVCMOS33;
+Net fpga_0_flash_A_pin<2> LOC=H18 | IOSTANDARD = LVCMOS33;
+Net fpga_0_flash_A_pin<3> LOC=G19 | IOSTANDARD = LVCMOS33;
+Net fpga_0_flash_A_pin<4> LOC=G9 | IOSTANDARD = LVCMOS33;
+Net fpga_0_flash_A_pin<5> LOC=G10 | IOSTANDARD = LVCMOS33;
+Net fpga_0_flash_A_pin<6> LOC=G17 | IOSTANDARD = LVCMOS33;
+Net fpga_0_flash_A_pin<7> LOC=H17 | IOSTANDARD = LVCMOS33;
+Net fpga_0_flash_A_pin<8> LOC=G11 | IOSTANDARD = LVCMOS33;
+Net fpga_0_flash_A_pin<9> LOC=H11 | IOSTANDARD = LVCMOS33;
+Net fpga_0_flash_A_pin<10> LOC=H16 | IOSTANDARD = LVCMOS33;
+Net fpga_0_flash_A_pin<11> LOC=G16 | IOSTANDARD = LVCMOS33;
+Net fpga_0_flash_A_pin<12> LOC=H12 | IOSTANDARD = LVCMOS33;
+Net fpga_0_flash_A_pin<13> LOC=G12 | IOSTANDARD = LVCMOS33;
+Net fpga_0_flash_A_pin<14> LOC=G15 | IOSTANDARD = LVCMOS33;
+Net fpga_0_flash_A_pin<15> LOC=F15 | IOSTANDARD = LVCMOS33;
+Net fpga_0_flash_A_pin<16> LOC=H13 | IOSTANDARD = LVCMOS33;
+Net fpga_0_flash_A_pin<17> LOC=H14 | IOSTANDARD = LVCMOS33;
+Net fpga_0_flash_A_pin<18> LOC=F13 | IOSTANDARD = LVCMOS33;
+Net fpga_0_flash_A_pin<19> LOC=G14 | IOSTANDARD = LVCMOS33;
+Net fpga_0_flash_A_pin<20> LOC=AB17 | IOSTANDARD = LVCMOS33;
+Net fpga_0_flash_A_pin<21> LOC=AA17 | IOSTANDARD = LVCMOS33;
+Net fpga_0_flash_A_pin<22> LOC=AA8 | IOSTANDARD = LVCMOS33;
+Net fpga_0_flash_A_pin<23> LOC=Y11 | IOSTANDARD = LVCMOS33;
+#Net fpga_0_flash_A_pin<24> LOC=Y10 | IOSTANDARD = LVCMOS33;
+
+Net fpga_0_flash_DQ_pin<0> LOC=AA14 | IOSTANDARD = LVCMOS33;
+Net fpga_0_flash_DQ_pin<1> LOC=AA13 | IOSTANDARD = LVCMOS33;
+Net fpga_0_flash_DQ_pin<2> LOC=AB11 | IOSTANDARD = LVCMOS33;
+Net fpga_0_flash_DQ_pin<3> LOC=AA12 | IOSTANDARD = LVCMOS33;
+Net fpga_0_flash_DQ_pin<4> LOC=AB14 | IOSTANDARD = LVCMOS33;
+Net fpga_0_flash_DQ_pin<5> LOC=AA15 | IOSTANDARD = LVCMOS33;
+Net fpga_0_flash_DQ_pin<6> LOC=Y13 | IOSTANDARD = LVCMOS33;
+Net fpga_0_flash_DQ_pin<7> LOC=Y12 | IOSTANDARD = LVCMOS33;
+
+Net fpga_0_flash_CEN_pin LOC=AA10 | IOSTANDARD = LVCMOS33;
+Net fpga_0_flash_OEN_pin LOC=AA9 | IOSTANDARD = LVCMOS33;
+Net fpga_0_flash_WEN_pin LOC=AB15 | IOSTANDARD = LVCMOS33;
+Net fpga_0_flash_RSTN_pin LOC=F18 | IOSTANDARD = LVCMOS25;

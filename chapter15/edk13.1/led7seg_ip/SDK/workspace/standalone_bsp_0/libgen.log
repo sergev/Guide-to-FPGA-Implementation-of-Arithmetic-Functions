@@ -1,0 +1,35 @@
+Release 13.1 - libgen Xilinx EDK 13.1 Build EDK_O.40d
+ (nt)
+Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
+
+Command Line: libgen -hw ../hw_platform_0/system.xml -lp ../../../ -pe
+microblaze_0 -log libgen.log system.mss 
+
+WARNING:EDK - INFO:Security:50 - The XILINXD_LICENSE_FILE environment variable
+   is set to 'C:\Tecno\Xilinx\Xilinx.lic;C:\Tecno\Xilinx\Xilinx_PR.lic'.
+   INFO:Security:53 - The LM_LICENSE_FILE environment variable is not set.
+   INFO:Security:56 - Part 'xc3s200' is not a WebPack part.
+   WARNING:Security:43 - No license file was found in the standard Xilinx
+   license directory.
+   WARNING:Security:44 - No license file was found.
+          Please run the Xilinx License Configuration Manager
+          (xlcm or "Manage Xilinx Licenses")
+          to assist in obtaining a license.
+   WARNING:Security:42 - Your license support version '2011.12' for SDK expires
+   in 17 days after which you will not qualify for Xilinx software updates or
+   new releases.
+
+
+
+Staging source files.
+Running DRCs.
+Running generate.
+Running post_generate.
+Running include - 'make -s include "COMPILER=mb-gcc" "ARCHIVER=mb-ar"
+"COMPILER_FLAGS=-mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare
+-mcpu=v8.10.a  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"'.
+
+Running libs - 'make -s libs "COMPILER=mb-gcc" "ARCHIVER=mb-ar"
+"COMPILER_FLAGS=-mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare
+-mcpu=v8.10.a  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"'.
+Running execs_generate.

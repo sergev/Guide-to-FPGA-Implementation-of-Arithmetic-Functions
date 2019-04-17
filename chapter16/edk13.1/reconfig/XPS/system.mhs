@@ -1,0 +1,214 @@
+
+# ##############################################################################
+# Created by Base System Builder Wizard for Xilinx EDK 13.1 Build EDK_O.40d
+# Target Board:  Custom
+# Family:    virtex5
+# Device:    xc5vlx50
+# Package:   ff676
+# Speed Grade:  -1
+# Processor number: 1
+# Processor 1: microblaze_0
+# System clock frequency: 100.0
+# Debug Interface: On-Chip HW Debug Module
+# ##############################################################################
+ PARAMETER VERSION = 2.1.0
+
+
+ PORT fpga_0_clk_1_sys_clk_pin = CLK_S, DIR = I, SIGIS = CLK, CLK_FREQ = 100000000
+ PORT fpga_0_rst_1_sys_rst_pin = sys_rst_s, DIR = I, SIGIS = RST, RST_POLARITY = 1
+ PORT fpga_0_RS232_RX_pin = rs232_RX, DIR = I
+ PORT fpga_0_RS232_TX_pin = rs232_TX, DIR = O
+ PORT fpga_0_flash_A_pin = flash_A, DIR = O, VEC = [23:0]
+ PORT fpga_0_flash_DQ_pin = flash_DQ, DIR = IO, VEC = [7:0]
+ PORT fpga_0_flash_CEN_pin = flash_CEN, DIR = O
+ PORT fpga_0_flash_OEN_pin = flash_OEN, DIR = O
+ PORT fpga_0_flash_WEN_pin = flash_WEN, DIR = O
+ PORT fpga_0_flash_RSTN_pin = net_vcc, DIR = O
+
+
+BEGIN microblaze
+ PARAMETER INSTANCE = microblaze_0
+ PARAMETER C_USE_BARREL = 1
+ PARAMETER C_DEBUG_ENABLED = 1
+ PARAMETER HW_VER = 8.10.a
+ PARAMETER C_FSL_LINKS = 1
+ BUS_INTERFACE DLMB = dlmb
+ BUS_INTERFACE ILMB = ilmb
+ BUS_INTERFACE DPLB = mb_plb
+ BUS_INTERFACE IPLB = mb_plb
+ BUS_INTERFACE DEBUG = microblaze_0_mdm_bus
+ BUS_INTERFACE MFSL0 = mb_to_copro
+ BUS_INTERFACE SFSL0 = copro_to_mb
+ PORT MB_RESET = mb_reset
+END
+
+BEGIN plb_v46
+ PARAMETER INSTANCE = mb_plb
+ PARAMETER HW_VER = 1.05.a
+ PORT PLB_Clk = sys_clk
+ PORT SYS_Rst = sys_bus_reset
+END
+
+BEGIN lmb_v10
+ PARAMETER INSTANCE = ilmb
+ PARAMETER HW_VER = 2.00.a
+ PORT LMB_Clk = sys_clk
+ PORT SYS_Rst = sys_bus_reset
+END
+
+BEGIN lmb_v10
+ PARAMETER INSTANCE = dlmb
+ PARAMETER HW_VER = 2.00.a
+ PORT LMB_Clk = sys_clk
+ PORT SYS_Rst = sys_bus_reset
+END
+
+BEGIN lmb_bram_if_cntlr
+ PARAMETER INSTANCE = dlmb_cntlr
+ PARAMETER HW_VER = 3.00.a
+ PARAMETER C_BASEADDR = 0x00000000
+ PARAMETER C_HIGHADDR = 0x0000ffff
+ BUS_INTERFACE SLMB = dlmb
+ BUS_INTERFACE BRAM_PORT = dlmb_port
+END
+
+BEGIN lmb_bram_if_cntlr
+ PARAMETER INSTANCE = ilmb_cntlr
+ PARAMETER HW_VER = 3.00.a
+ PARAMETER C_BASEADDR = 0x00000000
+ PARAMETER C_HIGHADDR = 0x0000ffff
+ BUS_INTERFACE SLMB = ilmb
+ BUS_INTERFACE BRAM_PORT = ilmb_port
+END
+
+BEGIN bram_block
+ PARAMETER INSTANCE = lmb_bram
+ PARAMETER HW_VER = 1.00.a
+ BUS_INTERFACE PORTA = ilmb_port
+ BUS_INTERFACE PORTB = dlmb_port
+END
+
+BEGIN clock_generator
+ PARAMETER INSTANCE = clock_generator_0
+ PARAMETER C_CLKIN_FREQ = 100000000
+ PARAMETER C_CLKOUT0_FREQ = 100000000
+ PARAMETER C_CLKOUT0_PHASE = 0
+ PARAMETER C_CLKOUT0_GROUP = NONE
+ PARAMETER C_CLKOUT0_BUF = TRUE
+ PARAMETER C_EXT_RESET_HIGH = 1
+ PARAMETER HW_VER = 4.01.a
+ PORT CLKIN = CLK_S
+ PORT CLKOUT0 = sys_clk
+ PORT RST = sys_rst_s
+ PORT LOCKED = Dcm_all_locked
+END
+
+BEGIN mdm
+ PARAMETER INSTANCE = mdm_0
+ PARAMETER C_MB_DBG_PORTS = 1
+ PARAMETER C_USE_UART = 1
+ PARAMETER HW_VER = 2.00.b
+ PARAMETER C_BASEADDR = 0x84400000
+ PARAMETER C_HIGHADDR = 0x8440ffff
+ BUS_INTERFACE SPLB = mb_plb
+ BUS_INTERFACE MBDEBUG_0 = microblaze_0_mdm_bus
+ PORT Debug_SYS_Rst = Debug_SYS_Rst
+END
+
+BEGIN proc_sys_reset
+ PARAMETER INSTANCE = proc_sys_reset_0
+ PARAMETER C_EXT_RESET_HIGH = 1
+ PARAMETER HW_VER = 3.00.a
+ PORT Slowest_sync_clk = sys_clk
+ PORT Ext_Reset_In = sys_rst_s
+ PORT MB_Debug_Sys_Rst = Debug_SYS_Rst
+ PORT Dcm_locked = Dcm_all_locked
+ PORT MB_Reset = mb_reset
+ PORT Bus_Struct_Reset = sys_bus_reset
+ PORT Peripheral_Reset = sys_periph_reset
+END
+
+BEGIN xps_uartlite
+ PARAMETER INSTANCE = rs232
+ PARAMETER HW_VER = 1.01.a
+ PARAMETER C_BAUDRATE = 115200
+ PARAMETER C_USE_PARITY = 0
+ PARAMETER C_BASEADDR = 0x84000000
+ PARAMETER C_HIGHADDR = 0x8400ffff
+ BUS_INTERFACE SPLB = mb_plb
+ PORT RX = rs232_RX
+ PORT TX = rs232_TX
+END
+
+BEGIN fsl_v20
+ PARAMETER INSTANCE = mb_to_copro
+ PARAMETER HW_VER = 2.11.d
+ PARAMETER C_EXT_RESET_HIGH = 1
+ PORT FSL_Clk = sys_clk
+ PORT SYS_Rst = decoupling_rst
+END
+
+BEGIN fsl_v20
+ PARAMETER INSTANCE = copro_to_mb
+ PARAMETER HW_VER = 2.11.d
+ PARAMETER C_EXT_RESET_HIGH = 1
+ PORT FSL_Clk = sys_clk
+ PORT SYS_Rst = decoupling_rst
+END
+
+BEGIN fsl_rcopro
+ PARAMETER INSTANCE = rcopro
+ PARAMETER HW_VER = 1.00.a
+ PARAMETER C_CONFIG_IDX = 0
+ BUS_INTERFACE SFSL = mb_to_copro
+ BUS_INTERFACE MFSL = copro_to_mb
+ PORT FSL_Clk = sys_clk
+ PORT FSL_Rst = decoupling_rst
+END
+
+BEGIN xps_gpio
+ PARAMETER INSTANCE = decoupling_gpio
+ PARAMETER HW_VER = 2.00.a
+ PARAMETER C_GPIO_WIDTH = 1
+ PARAMETER C_BASEADDR = 0x81400000
+ PARAMETER C_HIGHADDR = 0x8140ffff
+ BUS_INTERFACE SPLB = mb_plb
+ PORT GPIO_IO_O = decoupling_rst
+END
+
+BEGIN xps_hwicap
+ PARAMETER INSTANCE = hwicap
+ PARAMETER HW_VER = 5.01.a
+ PARAMETER C_BASEADDR = 0x86800000
+ PARAMETER C_HIGHADDR = 0x8680ffff
+ BUS_INTERFACE SPLB = mb_plb
+ PORT ICAP_Clk = sys_clk
+END
+
+BEGIN xps_mch_emc
+ PARAMETER INSTANCE = flash_emc
+ PARAMETER HW_VER = 3.01.a
+ PARAMETER C_NUM_CHANNELS = 0
+ PARAMETER C_MAX_MEM_WIDTH = 8
+ PARAMETER C_MEM0_BASEADDR = 0xA0000000
+ PARAMETER C_MEM0_HIGHADDR = 0xA0FFFFFF
+ PARAMETER C_MEM0_WIDTH = 8
+ PARAMETER C_INCLUDE_DATAWIDTH_MATCHING_0 = 1
+ PARAMETER C_PAGEMODE_FLASH_0 = 1
+ PARAMETER C_TCEDV_PS_MEM_0 = 75000
+ PARAMETER C_TAVDV_PS_MEM_0 = 75000
+ PARAMETER C_THZCE_PS_MEM_0 = 25000
+ PARAMETER C_THZOE_PS_MEM_0 = 15000
+ PARAMETER C_TWC_PS_MEM_0 = 60000
+ PARAMETER C_TWP_PS_MEM_0 = 60000
+ PARAMETER C_TLZWE_PS_MEM_0 = 35000
+ PARAMETER C_TPACC_PS_FLASH_0 = 25000
+ BUS_INTERFACE SPLB = mb_plb
+ PORT RdClk = sys_clk
+ PORT Mem_A = 0b00000000 & flash_A
+ PORT Mem_CEN = flash_CEN
+ PORT Mem_OEN = flash_OEN
+ PORT Mem_WEN = flash_WEN
+ PORT Mem_DQ = flash_DQ
+END
+

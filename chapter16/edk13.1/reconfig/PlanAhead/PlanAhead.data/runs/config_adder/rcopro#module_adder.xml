@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<DARoots Version="1" Minor="12">
+	<FileSet Name="rcopro#module_adder" Type="Reconfig" RelSrcDir="$PSRCDIR/rcopro#module_adder">
+		<Filter Type="EDIFSrcs"/>
+		<File Path="$PPRDIR/../XST/fsl_rcopro_adder.ngc">
+		</File>
+		<Config>
+		</Config>
+	</FileSet>
+</DARoots>
+

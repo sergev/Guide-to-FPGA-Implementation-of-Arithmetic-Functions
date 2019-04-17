@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<Compat Version="1" Minor="4">
+	<CompatParts>
+	</CompatParts>
+	<ConfigModes>
+	</ConfigModes>
+	<PortProps>
+		<Port Name="fpga_0_flash_DQ_pin[7]"/>
+		<Port Name="fpga_0_flash_DQ_pin[6]"/>
+		<Port Name="fpga_0_flash_DQ_pin[5]"/>
+		<Port Name="fpga_0_flash_DQ_pin[4]"/>
+		<Port Name="fpga_0_flash_DQ_pin[3]"/>
+		<Port Name="fpga_0_flash_DQ_pin[2]"/>
+		<Port Name="fpga_0_flash_DQ_pin[1]"/>
+		<Port Name="fpga_0_flash_DQ_pin[0]"/>
+		<Port Name="fpga_0_flash_A_pin[23]"/>
+		<Port Name="fpga_0_flash_A_pin[22]"/>
+		<Port Name="fpga_0_flash_A_pin[21]"/>
+		<Port Name="fpga_0_flash_A_pin[20]"/>
+		<Port Name="fpga_0_flash_A_pin[19]"/>
+		<Port Name="fpga_0_flash_A_pin[18]"/>
+		<Port Name="fpga_0_flash_A_pin[17]"/>
+		<Port Name="fpga_0_flash_A_pin[16]"/>
+		<Port Name="fpga_0_flash_A_pin[15]"/>
+		<Port Name="fpga_0_flash_A_pin[14]"/>
+		<Port Name="fpga_0_flash_A_pin[13]"/>
+		<Port Name="fpga_0_flash_A_pin[12]"/>
+		<Port Name="fpga_0_flash_A_pin[11]"/>
+		<Port Name="fpga_0_flash_A_pin[10]"/>
+		<Port Name="fpga_0_flash_A_pin[9]"/>
+		<Port Name="fpga_0_flash_A_pin[8]"/>
+		<Port Name="fpga_0_flash_A_pin[7]"/>
+		<Port Name="fpga_0_flash_A_pin[6]"/>
+		<Port Name="fpga_0_flash_A_pin[5]"/>
+		<Port Name="fpga_0_flash_A_pin[4]"/>
+		<Port Name="fpga_0_flash_A_pin[3]"/>
+		<Port Name="fpga_0_flash_A_pin[2]"/>
+		<Port Name="fpga_0_flash_A_pin[1]"/>
+		<Port Name="fpga_0_flash_A_pin[0]"/>
+		<Port Name="fpga_0_RS232_RX_pin"/>
+		<Port Name="fpga_0_flash_RSTN_pin"/>
+		<Port Name="fpga_0_flash_CEN_pin"/>
+		<Port Name="fpga_0_rst_1_sys_rst_pin"/>
+		<Port Name="fpga_0_flash_WEN_pin"/>
+		<Port Name="fpga_0_RS232_TX_pin"/>
+		<Port Name="fpga_0_flash_OEN_pin"/>
+		<Port Name="fpga_0_clk_1_sys_clk_pin"/>
+	</PortProps>
+</Compat>
+

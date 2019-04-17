@@ -1,0 +1,33 @@
+##############################################################################
+## Filename:          \edk13.1\coprocessor_ip\pcores/fsl_mixcolumns_v1_00_a/data/fsl_mixcolumns_v2_1_0.mpd
+## Description:       Microprocessor Peripheral Description
+## Date:              (by Create and Import Peripheral Wizard)
+##############################################################################
+
+BEGIN fsl_mixcolumns
+
+## Peripheral Options
+OPTION IPTYPE = PERIPHERAL
+OPTION IMP_NETLIST = TRUE
+OPTION HDL = VHDL
+OPTION LONG_DESC = FSL coprocessor for MixColumns and InvMixColumns of the AES-128 cipher
+
+## Bus Interfaces
+BUS_INTERFACE BUS=SFSL, BUS_STD=FSL, BUS_TYPE=SLAVE
+BUS_INTERFACE BUS=MFSL, BUS_STD=FSL, BUS_TYPE=MASTER
+
+## Peripheral ports
+PORT FSL_Clk = "", DIR=I, SIGIS=Clk, BUS=MFSL:SFSL
+PORT FSL_Rst = OPB_Rst, DIR=I, BUS=MFSL:SFSL
+PORT FSL_S_Clk = FSL_S_Clk, DIR=I, SIGIS=Clk, BUS=SFSL
+PORT FSL_S_Read = FSL_S_Read, DIR=O, BUS=SFSL
+PORT FSL_S_Data = FSL_S_Data, DIR=I, VEC=[0:31], BUS=SFSL
+PORT FSL_S_Control = FSL_S_Control, DIR=I, BUS=SFSL
+PORT FSL_S_Exists = FSL_S_Exists, DIR=I, BUS=SFSL
+PORT FSL_M_Clk = FSL_M_Clk, DIR=I, SIGIS=Clk, BUS=MFSL
+PORT FSL_M_Write = FSL_M_Write, DIR=O, BUS=MFSL
+PORT FSL_M_Data = FSL_M_Data, DIR=O, VEC=[0:31], BUS=MFSL
+PORT FSL_M_Control = FSL_M_Control, DIR=O, BUS=MFSL
+PORT FSL_M_Full = FSL_M_Full, DIR=I, BUS=MFSL
+
+END

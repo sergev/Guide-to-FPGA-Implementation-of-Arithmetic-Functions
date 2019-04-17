@@ -1,0 +1,25 @@
+Net fpga_0_clk_1_sys_clk_pin TNM_NET = sys_clk_pin;
+TIMESPEC TS_sys_clk_pin = PERIOD sys_clk_pin 50000 kHz;
+Net fpga_0_rst_1_sys_rst_pin TIG;
+
+Net fpga_0_clk_1_sys_clk_pin LOC=T9;
+Net fpga_0_rst_1_sys_rst_pin LOC=L14;
+
+Net fpga_0_RX_pin LOC=T13;
+Net fpga_0_TX_pin LOC=R13;
+
+Net fpga_0_led7seg_pin<0>  LOC=E14;	#segment-A
+Net fpga_0_led7seg_pin<1>  LOC=G13;	#segment-B
+Net fpga_0_led7seg_pin<2>  LOC=N15;	#segment-C
+Net fpga_0_led7seg_pin<3>  LOC=P15;	#segment-D
+Net fpga_0_led7seg_pin<4>  LOC=R16;	#segment-E
+Net fpga_0_led7seg_pin<5>  LOC=F13;	#segment-F
+Net fpga_0_led7seg_pin<6>  LOC=N16;	#segment-G
+Net fpga_0_led7seg_dot_pin	LOC=P16;	#dot
+Net fpga_0_led7seg_pin<7>  LOC=D14;	#anode-0
+Net fpga_0_led7seg_pin<8>  LOC=G14;	#anode-1
+Net fpga_0_led7seg_pin<9>  LOC=F14;	#anode-2
+Net fpga_0_led7seg_pin<10> LOC=E13;	#anode-3
+
+Net fpga_0_switches_pin<0> LOC=K13;
+Net fpga_0_switches_pin<1> LOC=K14;

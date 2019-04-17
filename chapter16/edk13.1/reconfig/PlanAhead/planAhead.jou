@@ -1,0 +1,11 @@
+#-----------------------------------------------------------
+# PlanAhead v13.1
+# Build 117799 by hdbuild on Thu Feb 17 11:38:00 PST 2011
+# Start of session at: Thu Oct 27 15:17:34 2011
+# Process ID: 3340
+# Log file: C:/User/Doctor/papers/libro_Deschamps/edk13.1/reconfig/PlanAhead/planAhead.log
+# Journal file: C:/User/Doctor/papers/libro_Deschamps/edk13.1/reconfig/PlanAhead/planAhead.jou
+#-----------------------------------------------------------
+start_gui -project {C:\User\Doctor\papers\libro_Deschamps\edk13.1\reconfig\PlanAhead\PlanAhead.ppr}
+open_project {C:\User\Doctor\papers\libro_Deschamps\edk13.1\reconfig\PlanAhead\PlanAhead.ppr}
+exit

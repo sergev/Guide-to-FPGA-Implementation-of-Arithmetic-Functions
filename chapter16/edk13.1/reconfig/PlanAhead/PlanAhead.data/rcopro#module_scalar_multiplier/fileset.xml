@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<DARoots Version="1" Minor="12">
+	<FileSet Name="rcopro#module_scalar_multiplier" Type="Reconfig" RelSrcDir="$PSRCDIR/rcopro#module_scalar_multiplier">
+		<Filter Type="EDIFSrcs"/>
+		<File Path="$PPRDIR/../XST/fsl_rcopro_scalar_multiplier.ngc">
+		</File>
+		<Config>
+			<Option Name="GateLvlMode" Val="EDIF"/>
+			<Option Name="TopFile" Val="$PPRDIR/../XST/fsl_rcopro_scalar_multiplier.ngc"/>
+			<Option Name="Partition" Val="rcopro"/>
+			<Option Name="ReconfigModule" Val="module_scalar_multiplier"/>
+		</Config>
+	</FileSet>
+</DARoots>
+

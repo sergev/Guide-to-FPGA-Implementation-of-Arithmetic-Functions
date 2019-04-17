@@ -1,0 +1,36 @@
+// BMM LOC annotation file.
+//
+// Release 13.1 - Data2MEM O.40d, build 1.9 Aug 19, 2010
+// Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Processor 'microblaze_0', ID 100, memory map.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+ADDRESS_MAP microblaze_0 MICROBLAZE 100
+
+
+    ///////////////////////////////////////////////////////////////////////////////
+    //
+    // Processor 'microblaze_0' address space 'lmb_bram_combined' 0x00000000:0x00003FFF (16 KBytes).
+    //
+    ///////////////////////////////////////////////////////////////////////////////
+
+    ADDRESS_SPACE lmb_bram_combined RAMB16 [0x00000000:0x00003FFF]
+        BUS_BLOCK
+            lmb_bram/lmb_bram/ramb16_s4_s4_0 [31:28] PLACED = X1Y3;
+            lmb_bram/lmb_bram/ramb16_s4_s4_1 [27:24] PLACED = X0Y1;
+            lmb_bram/lmb_bram/ramb16_s4_s4_2 [23:20] PLACED = X0Y3;
+            lmb_bram/lmb_bram/ramb16_s4_s4_3 [19:16] PLACED = X0Y2;
+            lmb_bram/lmb_bram/ramb16_s4_s4_4 [15:12] PLACED = X1Y4;
+            lmb_bram/lmb_bram/ramb16_s4_s4_5 [11:8] PLACED = X0Y4;
+            lmb_bram/lmb_bram/ramb16_s4_s4_6 [7:4] PLACED = X1Y2;
+            lmb_bram/lmb_bram/ramb16_s4_s4_7 [3:0] PLACED = X1Y1;
+        END_BUS_BLOCK;
+    END_ADDRESS_SPACE;
+
+END_ADDRESS_MAP;
+

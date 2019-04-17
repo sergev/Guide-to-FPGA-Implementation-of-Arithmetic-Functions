@@ -1,0 +1,35 @@
+
+**** Build of configuration Debug for project sim ****
+
+make all 
+Building file: ../src/sim.cc
+Invoking: MicroBlaze g++ compiler
+mb-g++ -Wall -O0 -g3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.10.a -mno-xl-soft-mul -MMD -MP -MF"src/sim.d" -MT"src/sim.d" -o"src/sim.o" "../src/sim.cc"
+../src/sim.cc: In function 'int main()':
+../src/sim.cc:13: warning: unused variable 'o'
+Finished building: ../src/sim.cc
+' '
+Building target: sim.elf
+Invoking: MicroBlaze g++ linker
+mb-g++ -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.10.a -mno-xl-soft-mul -o"sim.elf"  ./src/sim.o   
+Finished building target: sim.elf
+' '
+Invoking: MicroBlaze Print Size
+mb-size sim.elf  |tee "sim.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+   2126	    296	   1064	   3486	    d9e	sim.elf
+Finished building: sim.elf.size
+' '
+Invoking: Xilinx ELF Check
+elfcheck sim.elf -hw ../../hw_platform_0/system.xml -pe microblaze_0  |tee "sim.elf.elfcheck"
+elfcheck
+Xilinx EDK 13.1 Build EDK_O.40d
+Copyright (c) 1995-2010 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../hw_platform_0/system.xml -pe microblaze_0
+sim.elf 
+
+ELF file	: sim.elf
+elfcheck passed.
+Finished building: sim.elf.elfcheck
+' '

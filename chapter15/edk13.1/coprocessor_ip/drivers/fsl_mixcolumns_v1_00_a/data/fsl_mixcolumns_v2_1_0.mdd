@@ -1,0 +1,16 @@
+##############################################################################
+## Filename:          C:\User\Doctor\papers\libro_Deschamps\edk13.1\coprocessor_ip\drivers/fsl_mixcolumns_v1_00_a/data/fsl_mixcolumns_v2_1_0.mdd
+## Description:       Microprocessor Driver Definition
+## Date:              Wed Jul 06 12:05:10 2011 (by Create and Import Peripheral Wizard)
+##############################################################################
+
+OPTION psf_version = 2.1.0;
+
+BEGIN DRIVER fsl_mixcolumns_v1_00_a
+
+  OPTION supported_peripherals = (fsl_mixcolumns_v1_00_a);
+  OPTION depends = (common_v1_00_a);
+  OPTION DESC = new FSL core;
+  OPTION copyfiles = all;
+
+END DRIVER

@@ -1,0 +1,15 @@
+run
+-opt_mode speed
+-netlist_hierarchy as_optimized
+-opt_level 1
+-top fsl_rcopro
+-ifmt MIXED
+-ifn fsl_rcopro.prj
+-hierarchy_separator /
+-iobuf NO
+-p xc5vlx50ff676-1
+-ofn fsl_rcopro_dummy.ngc
+#-ofn fsl_rcopro_adder.ngc 
+#-ofn fsl_rcopro_multiplier.ngc 
+#-ofn fsl_rcopro_scalar_multiplier.ngc
+#-ofn fsl_rcopro_determinant.ngc

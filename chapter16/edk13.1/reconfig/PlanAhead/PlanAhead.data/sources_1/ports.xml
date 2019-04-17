@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<Interface Version="1" Minor="1">
+	<Ifc Id="ROOT" Top="1">
+		<Bus Id="fpga_0_flash_DQ_pin">
+			<Port Id="7" Dir="INOUT"/>
+			<Port Id="6" Dir="INOUT"/>
+			<Port Id="5" Dir="INOUT"/>
+			<Port Id="4" Dir="INOUT"/>
+			<Port Id="3" Dir="INOUT"/>
+			<Port Id="2" Dir="INOUT"/>
+			<Port Id="1" Dir="INOUT"/>
+			<Port Id="0" Dir="INOUT"/>
+		</Bus>
+		<Bus Id="fpga_0_flash_A_pin">
+			<Port Id="23" Dir="OUT"/>
+			<Port Id="22" Dir="OUT"/>
+			<Port Id="21" Dir="OUT"/>
+			<Port Id="20" Dir="OUT"/>
+			<Port Id="19" Dir="OUT"/>
+			<Port Id="18" Dir="OUT"/>
+			<Port Id="17" Dir="OUT"/>
+			<Port Id="16" Dir="OUT"/>
+			<Port Id="15" Dir="OUT"/>
+			<Port Id="14" Dir="OUT"/>
+			<Port Id="13" Dir="OUT"/>
+			<Port Id="12" Dir="OUT"/>
+			<Port Id="11" Dir="OUT"/>
+			<Port Id="10" Dir="OUT"/>
+			<Port Id="9" Dir="OUT"/>
+			<Port Id="8" Dir="OUT"/>
+			<Port Id="7" Dir="OUT"/>
+			<Port Id="6" Dir="OUT"/>
+			<Port Id="5" Dir="OUT"/>
+			<Port Id="4" Dir="OUT"/>
+			<Port Id="3" Dir="OUT"/>
+			<Port Id="2" Dir="OUT"/>
+			<Port Id="1" Dir="OUT"/>
+			<Port Id="0" Dir="OUT"/>
+		</Bus>
+		<Port Id="fpga_0_RS232_RX_pin" Dir="IN"/>
+		<Port Id="fpga_0_flash_RSTN_pin" Dir="OUT"/>
+		<Port Id="fpga_0_flash_CEN_pin" Dir="OUT"/>
+		<Port Id="fpga_0_rst_1_sys_rst_pin" Dir="IN"/>
+		<Port Id="fpga_0_flash_WEN_pin" Dir="OUT"/>
+		<Port Id="fpga_0_RS232_TX_pin" Dir="OUT"/>
+		<Port Id="fpga_0_flash_OEN_pin" Dir="OUT"/>
+		<Port Id="fpga_0_clk_1_sys_clk_pin" Dir="IN"/>
+	</Ifc>
+</Interface>
+

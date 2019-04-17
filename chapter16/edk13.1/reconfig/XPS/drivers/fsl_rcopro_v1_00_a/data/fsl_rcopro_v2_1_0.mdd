@@ -1,0 +1,15 @@
+##############################################################################
+## Description:       Microprocessor Driver Definition
+## Date:               (by Create and Import Peripheral Wizard)
+##############################################################################
+
+OPTION psf_version = 2.1.0;
+
+BEGIN DRIVER fsl_rcopro_v1_00_a
+
+  OPTION supported_peripherals = (fsl_rcopro_v1_00_a);
+  OPTION depends = (common_v1_00_a);
+  OPTION DESC = new FSL core;
+  OPTION copyfiles = all;
+
+END DRIVER

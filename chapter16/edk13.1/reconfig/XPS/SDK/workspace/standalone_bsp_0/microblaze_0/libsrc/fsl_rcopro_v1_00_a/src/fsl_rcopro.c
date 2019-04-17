@@ -1,0 +1,69 @@
+#include <xparameters.h>
+#include <fsl.h>
+#include "fsl_rcopro.h"
+
+//FSL_INPUT_SLOT is the FSL slot from which coprocessor read the input data
+//FSL_OUTPUT_SLOT is the FSL slot into which the coprocessor write output data
+#define FSL_INPUT_SLOT		XPAR_FSL_RCOPRO_INPUT_SLOT_ID
+#define FSL_OUTPUT_SLOT		XPAR_FSL_RCOPRO_OUTPUT_SLOT_ID
+
+void fsl_rcopro_putscalartomatrix(int a)
+{
+int i,j;
+for(i=0; i<3; i++)
+	for(j=0; j<3; j++)
+		putfsl(a,FSL_INPUT_SLOT);
+}
+
+void fsl_rcopro_putmatrix(int a[3][3])
+{
+int i,j;
+for(i=0; i<3; i++)
+	for(j=0; j<3; j++)
+		putfsl(a[i][j],FSL_INPUT_SLOT);
+}
+
+void fsl_rcopro_getmatrix(int a[3][3])
+{
+int i,j;
+for(i=0; i<3; i++)
+	for(j=0; j<3; j++)
+		getfsl(a[i][j],FSL_OUTPUT_SLOT);
+}
+
+void fsl_rcopro_dummy(int o[3][3])
+{
+fsl_rcopro_putscalartomatrix(-1);	//Writes any value
+fsl_rcopro_putscalartomatrix(-1);	
+fsl_rcopro_getmatrix(o); 			//Read zeros
+}
+
+
+void fsl_rcopro_adder(int a[3][3],int b[3][3],int o[3][3])
+{
+fsl_rcopro_putmatrix(a);
+fsl_rcopro_putmatrix(b);
+fsl_rcopro_getmatrix(o);
+}
+
+void fsl_rcopro_multiplier(int a[3][3],int b[3][3],int o[3][3])
+{
+fsl_rcopro_putmatrix(a);
+fsl_rcopro_putmatrix(b);
+fsl_rcopro_getmatrix(o);
+}
+
+void fsl_rcopro_scalar_multiplier(int k,int a[3][3],int o[3][3])
+{
+putfsl(k,FSL_INPUT_SLOT);
+fsl_rcopro_putmatrix(a);
+fsl_rcopro_getmatrix(o);
+}
+
+int fsl_rcopro_determinant(int a[3][3])
+{
+int o;
+fsl_rcopro_putmatrix(a);
+getfsl(o,FSL_OUTPUT_SLOT);
+return o;
+}

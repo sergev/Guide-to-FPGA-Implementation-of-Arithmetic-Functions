@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<DARoots Version="1" Minor="12">
+	<FileSet Name="constrs_1" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+		<Filter Type="Constrs"/>
+		<File Path="$PPRDIR/../XPS/implementation/microblaze_0_wrapper.ncf">
+		</File>
+		<File Path="$PPRDIR/../XPS/implementation/mb_to_copro_wrapper.ncf">
+		</File>
+		<File Path="$PPRDIR/../XPS/implementation/ilmb_wrapper.ncf">
+		</File>
+		<File Path="$PPRDIR/../XPS/implementation/dlmb_wrapper.ncf">
+		</File>
+		<File Path="$PPRDIR/../XPS/implementation/copro_to_mb_wrapper.ncf">
+		</File>
+		<File Path="$PPRDIR/../XPS/implementation/system.ucf">
+		</File>
+		<File Path="$PDATADIR/constrs_1/designprops.xml">
+			<FileInfo SFType="CompatPartsDb"/>
+		</File>
+		<File Path="$PDATADIR/constrs_1/usercols.xml">
+			<FileInfo SFType="UserColsDb"/>
+		</File>
+		<Config>
+			<Option Name="TargetConstrsFile" Val="$PPRDIR/../XPS/implementation/system.ucf"/>
+			<Option Name="TargetPart" Val="xc5vlx50ff676-1"/>
+		</Config>
+	</FileSet>
+</DARoots>
+

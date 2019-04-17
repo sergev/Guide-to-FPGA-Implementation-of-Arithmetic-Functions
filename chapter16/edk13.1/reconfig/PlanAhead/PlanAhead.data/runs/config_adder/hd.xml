@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<PartialReconfig Version="1" Minor="6">
+	<PRInst Name="system" Top="TRUE" Reconfigurable="FALSE" PromotedLocation="$PROMOTEDIR/Xconfig_dummy">
+	</PRInst>
+	<PRInst Name="rcopro" CurrPRModule="module_adder" Reconfigurable="TRUE">
+		<PRModule Name="module_dummy" PromotedLocation="$PROMOTEDIR/Xconfig_dummy">
+		</PRModule>
+		<PRModule Name="module_adder">
+		</PRModule>
+		<PRModule Name="module_multiplier">
+		</PRModule>
+		<PRModule Name="module_scalar_multiplier">
+		</PRModule>
+		<PRModule Name="module_determinant">
+		</PRModule>
+	</PRInst>
+	<PRConfig Name="config_dummy" State="PROMOTED" PromotedLocation="$PROMOTEDIR/Xconfig_dummy" RunType="Implementation">
+		<PRConfigInst PRInst="system" State="IMPLEMENT">
+		</PRConfigInst>
+		<PRConfigInst PRInst="rcopro" PRModule="module_dummy" State="IMPLEMENT">
+		</PRConfigInst>
+	</PRConfig>
+	<PRConfig Name="config_adder" State="INITIAL" RunType="Implementation">
+		<PRConfigInst PRInst="system" State="IMPORT" ImportLocation="$PROMOTEDIR/Xconfig_dummy">
+		</PRConfigInst>
+		<PRConfigInst PRInst="rcopro" PRModule="module_adder" State="IMPLEMENT">
+		</PRConfigInst>
+	</PRConfig>
+	<PRConfig Name="config_multiplier" State="INITIAL" RunType="Implementation">
+		<PRConfigInst PRInst="system" State="IMPORT" ImportLocation="$PROMOTEDIR/Xconfig_dummy">
+		</PRConfigInst>
+		<PRConfigInst PRInst="rcopro" PRModule="module_multiplier" State="IMPLEMENT">
+		</PRConfigInst>
+	</PRConfig>
+	<PRConfig Name="config_scalar_multiplier" State="INITIAL" RunType="Implementation">
+		<PRConfigInst PRInst="system" State="IMPORT" ImportLocation="$PROMOTEDIR/Xconfig_dummy">
+		</PRConfigInst>
+		<PRConfigInst PRInst="rcopro" PRModule="module_scalar_multiplier" State="IMPLEMENT">
+		</PRConfigInst>
+	</PRConfig>
+	<PRConfig Name="config_determinant" State="INITIAL" RunType="Implementation">
+		<PRConfigInst PRInst="system" State="IMPORT" ImportLocation="$PROMOTEDIR/Xconfig_dummy">
+		</PRConfigInst>
+		<PRConfigInst PRInst="rcopro" PRModule="module_determinant" State="IMPLEMENT">
+		</PRConfigInst>
+	</PRConfig>
+</PartialReconfig>
+

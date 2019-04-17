@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<DARoots Version="1" Minor="12">
+	<FileSet Name="rcopro#module_adder" Type="Reconfig" RelSrcDir="$PSRCDIR/rcopro#module_adder">
+		<Filter Type="EDIFSrcs"/>
+		<File Path="$PPRDIR/../XST/fsl_rcopro_adder.ngc">
+		</File>
+		<Config>
+			<Option Name="GateLvlMode" Val="EDIF"/>
+			<Option Name="TopFile" Val="$PPRDIR/../XST/fsl_rcopro_adder.ngc"/>
+			<Option Name="Partition" Val="rcopro"/>
+			<Option Name="ReconfigModule" Val="module_adder"/>
+		</Config>
+	</FileSet>
+</DARoots>
+

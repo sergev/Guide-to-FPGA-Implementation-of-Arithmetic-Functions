@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="C:\User\Doctor\papers\libro_Deschamps\edk13.1\reconfig\bitstream\system_bd.bmm" key="hw_platform_0-bmmFile"/>
+	<item value="C:\User\Doctor\papers\libro_Deschamps\edk13.1\reconfig\bitstream\system_dummy.bit" key="hw_platform_0-bitFile"/>
+	<item value="C:\User\Doctor\papers\libro_Deschamps\edk13.1\reconfig\XPS\SDK\workspace\test_reconfig\Release\test_reconfig.elf" key="hw_platform_0-microblaze_0-initElf"/>
+</section>

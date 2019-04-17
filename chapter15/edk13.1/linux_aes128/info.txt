@@ -1,0 +1,30 @@
+To test the server executable with the PC
+
+1. Open a Linux or Cygwin console and change directory to the executable folder
+2. Type the following commands: 
+(substitute the X of /dev/com1 by the required PC serial port such as /dev/com3, /dev/ttyUSB0 ...) 
+(substitute -k "0123456789abcedf" to the required key as a 16-byte text) 
+
+$ stty -F /dev/com1 115200 cs8 -parenb -cstopb -crtscts -isig
+$ exec 9<>/dev/com1			
+$ ./aes128 -d -c -k "0123456789abcdef" <&9 &
+$ ./aes128 -e -c -k "0123456789abcdef" >&9 
+
+-Configures the serial port com1 with 115200bps, 8-bit character set, no parity, one stop bit 
+-Maps file descriptor 9 to the serial com1 
+-Decripts (as a background process) the input from the serial port to the console
+-Encripts the console input to the serial port
+
+
+-------------------------------------------------------------
+
+To build the aes128 executable on a PC
+
+1. Open a Linux or Cygwin console and change directory to the source folder
+2. Type the following commands:
+
+$ make clean
+$ make
+
+-Cleans the executable file
+-Builds the executable from scratch 

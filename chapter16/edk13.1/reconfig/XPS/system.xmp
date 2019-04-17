@@ -1,0 +1,26 @@
+#Please do not modify this file by hand
+XmpVersion: 13.1
+VerMgmt: 13.1
+IntStyle: default
+MHS File: system.mhs
+Architecture: virtex5
+Device: xc5vlx50
+Package: ff676
+SpeedGrade: -1
+UserCmd1: 
+UserCmd1Type: 0
+UserCmd2: 
+UserCmd2Type: 0
+GenSimTB: 1
+SdkExportBmmBit: 1
+SdkExportDir: SDK/SDK_Export
+InsertNoPads: 0
+WarnForEAArch: 1
+HdlLang: VHDL
+SimModel: BEHAVIORAL
+UcfFile: data/system.ucf
+EnableParTimingError: 1
+ShowLicenseDialog: 1
+Processor: microblaze_0
+ElfImp: 
+ElfSim: SDK/workspace/sim/Debug/sim.elf

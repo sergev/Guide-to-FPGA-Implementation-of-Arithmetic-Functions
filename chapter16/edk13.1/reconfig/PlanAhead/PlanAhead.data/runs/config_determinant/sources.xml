@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<DARoots Version="1" Minor="12">
+	<FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+		<Filter Type="EDIFSrcs"/>
+		<File Path="$PPRDIR/../XPS/implementation/system.ngc">
+		</File>
+		<File Path="$PPRDIR/../XPS/implementation/rs232_wrapper.ngc">
+		</File>
+		<File Path="$PPRDIR/../XPS/implementation/rcopro_wrapper.ngc">
+		</File>
+		<File Path="$PPRDIR/../XPS/implementation/proc_sys_reset_0_wrapper.ngc">
+		</File>
+		<File Path="$PPRDIR/../XPS/implementation/microblaze_0_wrapper.ngc">
+		</File>
+		<File Path="$PPRDIR/../XPS/implementation/mdm_0_wrapper.ngc">
+		</File>
+		<File Path="$PPRDIR/../XPS/implementation/mb_to_copro_wrapper.ngc">
+		</File>
+		<File Path="$PPRDIR/../XPS/implementation/mb_plb_wrapper.ngc">
+		</File>
+		<File Path="$PPRDIR/../XPS/implementation/lmb_bram_wrapper.ngc">
+		</File>
+		<File Path="$PPRDIR/../XPS/implementation/ilmb_wrapper.ngc">
+		</File>
+		<File Path="$PPRDIR/../XPS/implementation/ilmb_cntlr_wrapper.ngc">
+		</File>
+		<File Path="$PPRDIR/../XPS/implementation/hwicap_wrapper_fifo_generator_v4_3_2_fifo_generator_v4_3_xst_1.ngc">
+		</File>
+		<File Path="$PPRDIR/../XPS/implementation/hwicap_wrapper_fifo_generator_v4_3_2.edn">
+		</File>
+		<File Path="$PPRDIR/../XPS/implementation/hwicap_wrapper_fifo_generator_v4_3_1_fifo_generator_v4_3_xst_1.ngc">
+		</File>
+		<File Path="$PPRDIR/../XPS/implementation/hwicap_wrapper_fifo_generator_v4_3_1.edn">
+		</File>
+		<File Path="$PPRDIR/../XPS/implementation/hwicap_wrapper.ngc">
+		</File>
+		<File Path="$PPRDIR/../XPS/implementation/flash_emc_wrapper.ngc">
+		</File>
+		<File Path="$PPRDIR/../XPS/implementation/dlmb_wrapper.ngc">
+		</File>
+		<File Path="$PPRDIR/../XPS/implementation/dlmb_cntlr_wrapper.ngc">
+		</File>
+		<File Path="$PPRDIR/../XPS/implementation/decoupler_gpio_wrapper.ngc">
+		</File>
+		<File Path="$PPRDIR/../XPS/implementation/copro_to_mb_wrapper.ngc">
+		</File>
+		<File Path="$PPRDIR/../XPS/implementation/clock_generator_0_wrapper.ngc">
+		</File>
+		<File Path="$PDATADIR/sources_1/hd.xml">
+			<FileInfo SFType="HDDb"/>
+		</File>
+		<File Path="$PDATADIR/sources_1/ports.xml">
+			<FileInfo SFType="PortsDb"/>
+		</File>
+		<File Path="$PDATADIR/sources_1/chipscope.xml">
+			<FileInfo SFType="ChipscopeDb"/>
+		</File>
+		<Config>
+			<Option Name="DesignMode" Val="RTL"/>
+		</Config>
+	</FileSet>
+</DARoots>
+

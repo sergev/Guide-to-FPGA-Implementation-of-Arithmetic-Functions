@@ -1,0 +1,54 @@
+
+----------------------------------------------------------------------------
+--                            File Generation                             --
+----------------------------------------------------------------------------
+No ProjNavigator support files will be generated at this time ...
+No XST project files will be generated at this time ...
+Start Creating drver source 
+
+----------------------------------------------------------------------------
+--                              Final Report                              --
+----------------------------------------------------------------------------
+Thank you for using Create and Import Peripheral Wizard!
+
+Peripheral summary
+
+  top name       : fsl_mixcolumns
+  version        : 1.00.a
+  type           : FSL master slave
+  features       : 
+
+File Summary
+
+  - HDL source -
+C:\User\Doctor\papers\libro_Deschamps\edk13.1\coprocessor_ip\pcores\fsl_mixcolum
+ns_v1_00_a\hdl\vhdl
+  top level      : fsl_mixcolumns.vhd
+
+  - XPS interface -
+C:\User\Doctor\papers\libro_Deschamps\edk13.1\coprocessor_ip\pcores\fsl_mixcolum
+ns_v1_00_a\data
+  mpd            : fsl_mixcolumns_v2_1_0.mpd
+  pao            : fsl_mixcolumns_v2_1_0.pao
+
+  - Misc file -
+C:\User\Doctor\papers\libro_Deschamps\edk13.1\coprocessor_ip\pcores\fsl_mixcolum
+ns_v1_00_a\devl
+  help           : README.txt
+  option         : ipwiz.opt
+  log            : ipwiz.log
+
+  - Driver source -
+C:\User\Doctor\papers\libro_Deschamps\edk13.1\coprocessor_ip\drivers\fsl_mixcolu
+mns_v1_00_a\src
+  makefile       : Makefile
+  header         : fsl_mixcolumns.h
+  source         : fsl_mixcolumns.c
+
+  - Driver interface -
+C:\User\Doctor\papers\libro_Deschamps\edk13.1\coprocessor_ip\drivers\fsl_mixcolu
+mns_v1_00_a\data
+  mdd            : fsl_mixcolumns_v2_1_0.mdd
+  tcl            : fsl_mixcolumns_v2_1_0.tcl
+
+

@@ -1,0 +1,28 @@
+
+DESIGN RULE CHECK VIOLATION REPORT
+   Build: PlanAhead v13.1 by hdbuild
+          on  Thu Feb 17 11:38:00 PST 2011
+  Report: by kiquekk on host VGN-SR49VNH, pid 5828
+          on Sat Apr 16 00:54:38 2011
+
+REPORT SUMMARY
+            Netlist: netlist
+          Floorplan: netlist_1
+      Design limits: <entire design considered>
+             Checks: Reconfigurable instances must have a Slice range defined.
+                     At least one reconfigurable region
+                     Reconfigurable modules exist for each reconfigurable region
+                     Overlapping reconfigurable regions
+                     Glitching logic LOC above and below
+                     Glitching logic block above and below
+                     IO LOCs
+                     Reconfigurable instances must have a valid region defined
+                     Global clock inside reconfigurable module
+                     Illegal logic inside reconfigurable module
+                     Regional clock inside Reconfigurable Module
+                     All reconfigurable modules implemented
+                     PR static logic illegally placed
+           Max vios: <unlimited>
+         Vios found: 0
+
+REPORT DETAILS

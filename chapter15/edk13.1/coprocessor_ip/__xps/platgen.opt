@@ -1,0 +1,2 @@
+ -p xc3s200ft256-4 -lang vhdl$(PROJECT_SEARCHPATHOPT) $(GLOBAL_SEARCHPATHOPT) -msg __xps/ise/xmsgprops.lst
+

@@ -1,0 +1,33 @@
+
+**** Build of configuration Release for project app1 ****
+
+make all 
+Building file: ../src/application.cc
+Invoking: MicroBlaze g++ compiler
+mb-g++ -Wall -O3 -c -fmessage-length=0 -I../../standalone_bsp_0/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.10.a -mno-xl-soft-mul -MMD -MP -MF"src/application.d" -MT"src/application.d" -o"src/application.o" "../src/application.cc"
+Finished building: ../src/application.cc
+' '
+Building target: app1.elf
+Invoking: MicroBlaze g++ linker
+mb-g++ -L../../standalone_bsp_0/microblaze_0/lib -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.10.a -mno-xl-soft-mul -o"app1.elf"  ./src/application.o   
+Finished building target: app1.elf
+' '
+Invoking: MicroBlaze Print Size
+mb-size app1.elf  |tee "app1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+   5018	    324	   1064	   6406	   1906	app1.elf
+Finished building: app1.elf.size
+' '
+Invoking: Xilinx ELF Check
+elfcheck app1.elf -hw ../../hw_platform_0/system.xml -pe microblaze_0  |tee "app1.elf.elfcheck"
+elfcheck
+Xilinx EDK 13.1 Build EDK_O.40d
+Copyright (c) 1995-2010 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../hw_platform_0/system.xml -pe microblaze_0
+app1.elf 
+
+ELF file	: app1.elf
+elfcheck passed.
+Finished building: app1.elf.elfcheck
+' '

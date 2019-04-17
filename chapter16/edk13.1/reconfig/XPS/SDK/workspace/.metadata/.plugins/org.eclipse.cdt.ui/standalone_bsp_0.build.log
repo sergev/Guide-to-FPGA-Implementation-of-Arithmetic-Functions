@@ -1,0 +1,37 @@
+make -k all 
+libgen -hw ../hw_platform_0/system.xml\
+	       -lp ../../../\
+	       -pe microblaze_0 \
+	       -log libgen.log \
+	       system.mss
+libgen
+Xilinx EDK 13.1 Build EDK_O.40d
+Copyright (c) 1995-2010 Xilinx, Inc.  All rights reserved.
+
+Command Line: libgen -hw ../hw_platform_0/system.xml -lp ../../../ -pe
+microblaze_0 -log libgen.log system.mss 
+
+
+Staging source files.
+Running DRCs.
+Running generate.
+Generating Macros for FSL peripheral access ...
+
+Running post_generate.
+Running include - 'make -s include "COMPILER=mb-gcc" "ARCHIVER=mb-ar"
+"COMPILER_FLAGS=-mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare
+-mcpu=v8.10.a  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"'.
+
+Running libs - 'make -s libs "COMPILER=mb-gcc" "ARCHIVER=mb-ar"
+"COMPILER_FLAGS=-mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare
+-mcpu=v8.10.a  -O2 -c" "EXTRA_COMPILER_FLAGS=-g"'.
+"Compiling common"
+"Compiling standalone";
+"Compiling gpio"
+"Compiling bram"
+"Compiling hwicap"
+"Compiling uartlite"
+"Compiling fsl_copro_v1_00_a"
+"Compiling cpu"
+Running execs_generate.
+'Finished building libraries'

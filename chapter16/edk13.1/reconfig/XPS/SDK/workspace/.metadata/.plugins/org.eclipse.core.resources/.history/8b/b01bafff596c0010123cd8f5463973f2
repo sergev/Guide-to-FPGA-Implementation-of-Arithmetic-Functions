@@ -1,0 +1,183 @@
+#include <xparameters.h>	//declaration of XPAR_INSTANCE_BASEADDR's
+#include <stdio.h>			//declaration of //xil_print() function
+#include <fsl_rcopro.h>		//Driver header of the reconfigurable coprocessor
+#include <xuartlite_l.h>	//XUartLite_XXX() functions
+#include "cbitstream.h"		//declaration of CBitStream class
+
+#define NUM_BITSTREAMS (4)
+#define ADDR_BASE_BITSTREAMS (XPAR_FLASH_EMC_MEM0_BASEADDR+0xF00000)	//0xa0000000+0x00f00000=0xa0f00000
+#define ADDR_OFFSET_BITSTREAMS (0x20000)								//0xa0f20000,0xa0f40000,0x80f60000...
+
+CBitStream bitstream[NUM_BITSTREAMS];
+unsigned char rcopro_idx=0;
+
+/***************************************************************/
+void matrix_set(int a[3][3],int k)
+{
+for(int i=0; i<3; i++)
+	for(int j=0; j<3; j++)
+		a[i][j]=k+(j-1)+(k-1);
+}
+/***************************************************************/
+bool matrix_compare(int a[3][3],int b[3][3])
+{
+for(int i=0; i<3; i++)
+	for(int j=0; j<3; j++)
+		if(a[i][j]!=b[i][j])
+			return false;
+return true;
+}
+
+/***************************************************************/
+void matrix_print(int a[3][3])
+{
+xil_printf("{");
+for(int i=0; i<3; i++)
+	{xil_printf("{");
+	for(int j=0; j<3; j++)
+		xil_printf(" %d",a[i][j]);
+	xil_printf("}");}
+xil_printf("}");
+}
+/***************************************************************/
+void matrix_calc_dummy(int o[3][3])
+{
+for(int i=0; i<3; i++)
+	for(int j=0; j<3; j++)
+		o[i][j]=0;
+}
+/***************************************************************/
+void matrix_calc_adder(int a[3][3],int b[3][3],int o[3][3])
+{
+for(int i=0; i<3; i++)
+	for(int j=0; j<3; j++)
+		o[i][j]=a[i][j]+b[i][j];
+}
+/***************************************************************/
+void matrix_calc_multiplier(int a[3][3],int b[3][3],int o[3][3])
+{
+for(int i=0; i<3; i++)
+	for(int j=0; j<3; j++)
+		o[i][j]=a[i][0]*b[0][j]+a[i][1]*b[1][j]+a[i][2]*b[2][j];
+}
+/***************************************************************/
+void matrix_calc_scalar_multiplier(int k,int a[3][3],int o[3][3])
+{
+for(int i=0; i<3; i++)
+	for(int j=0; j<3; j++)
+		o[i][j]=k*a[i][j];
+}
+/***************************************************************/
+int matrix_calc_determinant(int a[3][3])
+{
+return a[0][0]*(a[1][1]*a[2][2]-a[2][1]*a[1][2])+
+	   a[0][1]*(a[2][0]*a[1][2]-a[1][0]*a[2][2])+
+       a[0][2]*(a[1][0]*a[2][1]-a[2][0]*a[1][1]);
+}
+/***************************************************************/
+bool rcopro_test(int a[3][3],int b[3][3])
+{
+int o[3][3],o2[3][3];
+int d,d2;
+
+switch(rcopro_idx)
+	{
+	case 0:  fsl_rcopro_dummy(o); matrix_calc_dummy(o2); break;
+	case 1:  fsl_rcopro_adder(a,b,o); matrix_calc_adder(a,b,o2); break;
+	case 2:  fsl_rcopro_multiplier(a,b,o); matrix_calc_multiplier(a,b,o2); break;
+	case 3:  fsl_rcopro_scalar_multiplier(b[0][0],a,o); matrix_calc_scalar_multiplier(b[0][0],a,o2); break;
+	case 4:  d=fsl_rcopro_determinant(a); d2=matrix_calc_determinant(a); break;
+	default: return true;
+	}
+if(!matrix_compare(o,o2))
+	{switch(rcopro_idx)
+		{
+		case 0: xil_printf("dummy="); matrix_print(o); break;
+		case 1: matrix_print(a); xil_printf("+"); matrix_print(b); xil_printf("="); matrix_print(o); break;
+		case 2: matrix_print(a); xil_printf("*"); matrix_print(b); xil_printf("="); matrix_print(o); break;
+		case 3: xil_printf("%d*",b[0][0]); matrix_print(a); xil_printf("="); matrix_print(o); break;
+		case 4: xil_printf("det"); matrix_print(a); xil_printf("=%d",d); break;
+		default: break;
+		}
+	xil_printf("\r\n");
+	return false;}
+return true;
+}
+/***************************************************************/
+void rcopro_test()
+{
+if(rcopro_idx==NUM_BITSTREAMS)
+	return;
+
+int a[3][3]={{1,3,5},{-1,-2,-3},{2,4,0}};
+int b[3][3]={{1,0,0},{0,1,0},{0,0,1}};
+
+xil_printf("\r\n**START test_rcopro() Conf#%d\r\n",rcopro_idx);
+
+bool r=true;
+
+for(int j=0; j<10; j++)
+	{if(!rcopro_test(a,b))
+		r=false;}
+		
+xil_printf("**END test_rcopro() Conf#%d => ",rcopro_idx);
+if(!r)
+	xil_printf("FAIL!!!\r\n");
+else
+	xil_printf("OK\r\n");
+}
+/***************************************************************/
+void rcopro_reset(bool assert)
+{
+*(volatile unsigned int *)(XPAR_DECOUPLER_GPIO_BASEADDR)=(assert)? 0x1:0x0;
+}
+/***************************************************************/
+void rcopro_reconfig(char idx)
+{
+if(idx >= NUM_BITSTREAMS)
+	return;
+rcopro_idx=idx;
+xil_printf("Reconfiguring to Conf#%d=> ",rcopro_idx);
+if(bitstream[rcopro_idx].Reconfig())
+	xil_printf("Succeed\r\n");
+else
+	{xil_printf("FAILED!!!\r\n");
+	rcopro_idx=NUM_BITSTREAMS;}
+rcopro_reset(true);
+rcopro_reset(false);
+}
+
+/***************************************************************/
+void rcopro_init_bitstreams()
+{
+unsigned char *file=(unsigned char*)ADDR_BASE_BITSTREAMS;
+for(int j=0; j<NUM_BITSTREAMS; j++)
+	{xil_printf("***Conf#%d***\r\n",j);
+	bitstream[j].ReadHeader(file);
+	bitstream[j].PrintHeader();
+	file+=ADDR_OFFSET_BITSTREAMS;}
+}
+/***************************************************************/
+int main()
+{
+xil_printf("\r\nStart\r\n");
+rcopro_reset(false);
+rcopro_init_bitstreams();
+
+bool end=false;
+while(!end)
+	{
+	rcopro_test();
+	switch(XUartLite_RecvByte(XPAR_RS232_BASEADDR))
+		{
+		case 27: end=true; break;
+		case '0': rcopro_reconfig(0); break;
+		case '1': rcopro_reconfig(1); break;
+		case '2': rcopro_reconfig(2); break;
+		case '3': rcopro_reconfig(3); break;
+		default: break;
+		}
+	}
+xil_printf("End\r\n");
+}
+

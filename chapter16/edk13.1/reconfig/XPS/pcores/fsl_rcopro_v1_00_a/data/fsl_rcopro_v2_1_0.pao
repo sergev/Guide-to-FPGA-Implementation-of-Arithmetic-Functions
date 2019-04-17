@@ -1,0 +1,8 @@
+
+lib fsl_rcopro_v1_00_a fsl_rcopro_dummy vhdl
+lib fsl_rcopro_v1_00_a fsl_rcopro_adder vhdl
+lib fsl_rcopro_v1_00_a fsl_rcopro_multiplier vhdl
+lib fsl_rcopro_v1_00_a fsl_rcopro_scalar_multiplier.vhd
+lib fsl_rcopro_v1_00_a fsl_rcopro_determinant.vhd
+
+lib fsl_rcopro_v1_00_a fsl_rcopro vhdl

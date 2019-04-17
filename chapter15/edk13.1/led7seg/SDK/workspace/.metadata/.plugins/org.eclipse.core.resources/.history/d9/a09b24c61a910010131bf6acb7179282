@@ -1,0 +1,79 @@
+#include <stdio.h>			//declaration of xil_print() function
+#include <mb_interface.h>	//declaration of microblaze functions to enable/disable interrupts
+#include <xintc_l.h>		//declaration of the interrupt controller funcions (XIntc_XXX)
+#include <xuartlite_l.h>	//declaration of the UART functions (XUartLite_XXX)
+#include <xtmrctr_l.h>		//declaration of the timer functions (XTmrCtr_XXXX)
+#include <xparameters.h>	//declaration of XPAR_INSTANCE_BASEADDR's and XPAR_TMRCTR_0_CLOCK_FREQ_HZ
+#include "led7seg.h"		//declaration of the class CLed7Seg
+
+#define LED7SEG_REFRESH_PERIOD_US (5000)
+#define LED7SEG_REFRESH_COUNTS (LED7SEG_REFRESH_PERIOD_US*(XPAR_TMRCTR_0_CLOCK_FREQ_HZ/1000))
+//#define LED7SEG_REFRESH_COUNTS (250000)
+
+/***************************************************************/
+CLed7Seg Display(XPAR_LED7SEG_BASEADDR);	//Constructor of object Display of class CLed7Seg
+unsigned short data;			//processed data in the main() function, and used by the interrupt service to display in the 7-segments LCD
+volatile bool endloop;			//volatile to avoid optimization malfunction
+/***************************************************************/
+void isr_timer()
+{
+static int sw1=-1;
+volatile int *gpio_data_switches=(int*)(XPAR_SWITCHES_BASEADDR+0);
+int sw2=*gpio_data_switches;	//Read switches
+if(sw1==-1) sw1=sw2;
+Display.Config^=(sw1^sw2);		//Change the Configuration of the Display if the switches are changed
+Display.Data=data;				//Updates the displayed data
+Display.Refresh();				//Display one of the digits
+sw1=sw2;
+XTmrCtr_SetControlStatusReg(XPAR_TIMER_BASEADDR, 0, XTC_CSR_INT_OCCURED_MASK|XTC_CSR_AUTO_RELOAD_MASK|XTC_CSR_ENABLE_INT_MASK|XTC_CSR_DOWN_COUNT_MASK|XTC_CSR_ENABLE_TMR_MASK);
+}
+
+void isr_rs232()
+{
+bool rs232_emptyRX=XUartLite_IsReceiveEmpty(XPAR_RS232_BASEADDR);
+if(!rs232_emptyRX)
+	{
+	char rs232_char=XUartLite_RecvByte(XPAR_RS232_BASEADDR);
+	switch(rs232_char)
+		{
+		case '+': data++; break;
+		case '-': data--; break;
+		case 'z': Display.Config^=0x1; break;
+		case 'o': Display.Config^=0x2; break;
+		case 'x': endloop=true; break;
+		default: break;
+		}
+	}
+}
+/***************************************************************/
+int main()
+{
+endloop=false;				//global variable
+data=0;
+
+XTmrCtr_SetLoadReg(XPAR_TIMER_BASEADDR, 0, LED7SEG_REFRESH_COUNTS);
+XTmrCtr_SetControlStatusReg(XPAR_TIMER_BASEADDR, 0, XTC_CSR_LOAD_MASK );
+XTmrCtr_SetControlStatusReg(XPAR_TIMER_BASEADDR, 0, XTC_CSR_AUTO_RELOAD_MASK|XTC_CSR_ENABLE_INT_MASK|XTC_CSR_DOWN_COUNT_MASK|XTC_CSR_ENABLE_TMR_MASK);
+
+XUartLite_EnableIntr(XPAR_RS232_BASEADDR);	//enable RS232 interrupts
+
+XIntc_RegisterHandler(XPAR_INT_CONTROL_0_BASEADDR, XPAR_INT_CONTROL_0_TIMER_INTERRUPT_INTR, (XInterruptHandler)isr_timer, NULL);
+XIntc_RegisterHandler(XPAR_INT_CONTROL_0_BASEADDR, XPAR_INT_CONTROL_0_RS232_INTERRUPT_INTR, (XInterruptHandler)isr_rs232, NULL);
+XIntc_EnableIntr (XPAR_INT_CONTROL_0_BASEADDR, XPAR_TIMER_INTERRUPT_MASK|XPAR_RS232_INTERRUPT_MASK);
+XIntc_MasterEnable(XPAR_INT_CONTROL_0_BASEADDR);	//enable global interrupt in the int_controller
+
+microblaze_enable_interrupts();
+
+xil_printf("Start\n");
+Display.Config=0x0;		//Display on, left-side zeros off
+while(!endloop)			//Infinite Loop
+	{
+
+	}
+Display.Config=0x2;		//Display off
+Display.Refresh();
+xil_printf("End\n");	//printf("End\n");
+
+microblaze_disable_interrupts();
+return 0;
+}

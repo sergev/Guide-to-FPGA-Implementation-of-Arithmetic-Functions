@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<document>
+<!--The data in this file is primarily intended for consumption by Xilinx tools.
+The structure and the elements are likely to change over the next few releases.
+This means code written to parse this file will need to be revisited each subsequent release.-->
+<application name="pa" timeStamp="Thu Oct 27 15:18:04 2011">
+<section name="Project Information" visible="false">
+<property name="ProjectID" value="1cc9c0c9ec84489d83a65cc44420b175" type="ProjectID"/>
+<property name="ProjectIteration" value="14" type="ProjectIteration"/>
+</section>
+<section name="PlanAhead Usage" visible="true">
+<item name="Project Data">
+<property name="SrcSetCount" value="1" type="SrcSetCount"/>
+<property name="ConstraintSetCount" value="1" type="ConstraintSetCount"/>
+<property name="IsPRProject" value="true" type="IsPRProject"/>
+<property name="DesignMode" value="GateLvl" type="DesignMode"/>
+<property name="ReconfigPartitionCount" value="0" type="ReconfigPartitionCount"/>
+<property name="ReconfigModuleCount" value="0" type="ReconfigModuleCount"/>
+<property name="PartitionCount" value="0" type="PartitionCount"/>
+<property name="ImplStrategy" value="ISE Defaults" type="ImplStrategy"/>
+</item>
+<item name="Java Command Handlers">
+<property name="AddSrc" value="5" type="JavaHandler"/>
+<property name="CreateProject" value="1" type="JavaHandler"/>
+<property name="EditDelete" value="25" type="JavaHandler"/>
+<property name="EditProperties" value="1" type="JavaHandler"/>
+<property name="EditUndo" value="2" type="JavaHandler"/>
+<property name="PRPromoteConfig" value="18" type="JavaHandler"/>
+<property name="PRVerifyConfig" value="3" type="JavaHandler"/>
+<property name="ProjectSettings" value="1" type="JavaHandler"/>
+<property name="ResetLayout" value="3" type="JavaHandler"/>
+<property name="RunDRC" value="3" type="JavaHandler"/>
+<property name="RunDesignAhead" value="7" type="JavaHandler"/>
+<property name="SaveDesign" value="6" type="JavaHandler"/>
+<property name="SaveLayoutAs" value="1" type="JavaHandler"/>
+<property name="ShowView" value="13" type="JavaHandler"/>
+<property name="ToggleCreatePblockMode" value="3" type="JavaHandler"/>
+<property name="ToggleSetPblockSizeMode" value="19" type="JavaHandler"/>
+<property name="ToggleViewNavigator" value="6" type="JavaHandler"/>
+<property name="ToolsOptions" value="2" type="JavaHandler"/>
+<property name="UpdateSourceFiles" value="1" type="JavaHandler"/>
+<property name="ViewLayoutCmd" value="1" type="JavaHandler"/>
+<property name="ViewTaskNetlistDesign" value="19" type="JavaHandler"/>
+<property name="ViewTaskProjectManager" value="6" type="JavaHandler"/>
+<property name="ZoomIn" value="28" type="JavaHandler"/>
+<property name="ZoomOut" value="14" type="JavaHandler"/>
+</item>
+<item name="Other">
+<property name="GuiMode" value="29" type="GuiMode"/>
+<property name="BatchMode" value="0" type="BatchMode"/>
+<property name="TclMode" value="0" type="TclMode"/>
+<property name="ISEMode" value="0" type="ISEMode"/>
+</item>
+</section>
+</application>
+</document>
